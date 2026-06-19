@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>NAME</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -157,11 +157,11 @@ nav{
 }
 .hero-sub{
   font-family:'Fraunces',serif;
-  font-size:1.05rem;font-weight:300;font-style:italic;
-  color:rgba(247,245,240,0.5);
-  max-width:380px;line-height:1.8;
+  font-size:1.25rem;font-weight:300;font-style:italic;
+  color:rgba(247,245,240,0.55);
+  max-width:420px;line-height:1.75;
 }
-.hero-sub em{font-style:normal;color:rgba(247,245,240,0.8)}
+.hero-sub em{font-style:normal;color:rgba(247,245,240,0.85)}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .btn-v{
   display:inline-block;
@@ -265,12 +265,17 @@ nav{
 }
 .section-sub{
   font-family:'Fraunces',serif;
-  font-size:1rem;font-weight:300;font-style:italic;
+  font-size:1.2rem;font-weight:300;font-style:italic;
   color:var(--mid);line-height:1.7;
-  max-width:440px;margin-bottom:52px;
+  max-width:480px;margin-bottom:52px;
 }
 
 .programs-stack{border-top:1px solid rgba(14,14,14,0.09)}
+.programs .section-h{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  letter-spacing:-0.025em;
+}
 .program-row{
   display:grid;
   grid-template-columns:56px 1fr 48px;
@@ -337,7 +342,7 @@ nav{
   padding:72px 48px 80px;
 }
 .coaches-section .section-h{color:var(--paper)}
-.coaches-section .section-sub{color:rgba(247,245,240,0.35)}
+.coaches-section .section-sub{color:rgba(247,245,240,0.4);font-size:1.2rem}
 .coaches-section .section-kicker{color:var(--violet)}
 .coaches-section .section-kicker::after{background:var(--violet);opacity:0.3}
 .coaches-grid{
@@ -435,7 +440,7 @@ nav{
 .pricing-section .section-h{color:var(--ink)}
 .pricing-section .section-sub{
   font-family:'Fraunces',serif;
-  font-size:1rem;font-weight:300;font-style:italic;
+  font-size:1.2rem;font-weight:300;font-style:italic;
   color:rgba(14,14,14,0.45);
   margin-bottom:48px;
 }
@@ -558,7 +563,7 @@ nav{
 /* Italic sub-line in Fraunces */
 .cta-tagline{
   font-family:'Fraunces',serif;font-weight:300;font-style:italic;
-  font-size:1.1rem;color:var(--mid);
+  font-size:1.25rem;color:var(--mid);
   margin-bottom:40px;margin-top:18px;
 }
 /* Magnetic button */
@@ -685,12 +690,12 @@ footer p{
   </div>
 
   <div class="hero-bottom">
-    <p class="hero-label">Est. 2025</p>
+    <p class="hero-label">Est. 2026</p>
     <h1>Learn to<br><span class="cycle-word" id="cycleWord">debate.</span></h1>
     <div class="hero-foot">
       <div>
         <p class="hero-sub">
-          <em>SLOGAN</em> — coaching built by competitors, for the next generation. whether you're walking into a round or a room that matters, we get you ready.
+          <em>SLOGAN</em> — coaching built by competitors, for the next generation. 
         </p>
         <div class="hero-actions">
           <a href="#programs" class="btn-v">See programs</a>
@@ -710,7 +715,7 @@ footer p{
   <div class="tape-inner" id="tapeInner">
     <span>Targeted comp prep</span><span class="dot">·</span>
     <span>British Parliamentary</span><span class="dot">·</span>
-    <span>Asian Parliamentary</span><span class="dot">·</span>
+    <span>American Parliamentary</span><span class="dot">·</span>
     <span>Canadian Parliamentary</span><span class="dot">·</span>
     <span>Impromptu</span><span class="dot">·</span>
     <span>Interview prep</span><span class="dot">·</span>
@@ -718,7 +723,7 @@ footer p{
     <span>Public speaking</span><span class="dot">·</span>
     <span>Targeted comp prep</span><span class="dot">·</span>
     <span>British Parliamentary</span><span class="dot">·</span>
-    <span>Asian Parliamentary</span><span class="dot">·</span>
+    <span>American Parliamentary</span><span class="dot">·</span>
     <span>Canadian Parliamentary</span><span class="dot">·</span>
     <span>Impromptu</span><span class="dot">·</span>
     <span>Interview prep</span><span class="dot">·</span>
@@ -736,19 +741,20 @@ footer p{
 <section class="programs" id="programs">
   <p class="section-kicker">What we do</p>
   <h2 class="section-h reveal">Three ways we make<br>you unstoppable</h2>
-  <p class="section-sub reveal reveal-delay-1">Because one size fits nobody — pick the path that fits your goal, your schedule, your ambition.</p>
+  <p class="section-sub reveal reveal-delay-1">Because one size fits nobody. pick the path that fits your goal, your schedule, your ambition.</p>
 
   <div class="programs-stack">
     <div class="program-row reveal reveal-delay-1">
       <div class="prog-num">1</div>
       <div class="prog-content">
         <h3>Competition Prep</h3>
-        <p>Targeted 1-on-1 prep built around your next tournament. Deep work on argument structure, speaker points, strategy, and the margins that separate good from winning.</p>
+        <p>Whatever competition you're preparing for, we've got you. We help with piece selection, editing outside of meeting times, mock competitions, and every drill and strategy we found useful in our own competitive journeys and tailor them to your specific event and goals.</p>
         <div class="prog-tags">
+          <span class="ptag">Any competition</span>
+          <span class="ptag">Piece selection</span>
+          <span class="ptag">Mock comps</span>
+          <span class="ptag">Outside editing</span>
           <span class="ptag">1-v-1 intensive</span>
-          <span class="ptag">Case building</span>
-          <span class="ptag">Rebuttal</span>
-          <span class="ptag">Tournament strategy</span>
         </div>
       </div>
       <div class="prog-arrow">↗</div>
@@ -758,10 +764,10 @@ footer p{
       <div class="prog-num">2</div>
       <div class="prog-content">
         <h3>Debate & Public Speaking</h3>
-        <p>Structured courses across every major format. Learn what makes an argument actually land — and how to win the room, not just the flow.</p>
+        <p>Structured courses across every major format. Learn what makes an argument actually land, elevate your ability to think on the spot, and win the room.</p>
         <div class="prog-tags">
           <span class="ptag">British Parliamentary</span>
-          <span class="ptag">Asian Parliamentary</span>
+          <span class="ptag">American Parliamentary</span>
           <span class="ptag">Canadian Parliamentary</span>
           <span class="ptag">Impromptu</span>
         </div>
@@ -773,7 +779,7 @@ footer p{
       <div class="prog-num">3</div>
       <div class="prog-content">
         <h3>General Speech & Consulting</h3>
-        <p>A foundation course for anyone who wants to communicate better — and a consulting line for interviews, presentations, and the moments that actually count.</p>
+        <p>A foundation course for anyone who wants to communicate better. Also a consulting line for interviews, presentations, and the moments that matter.</p>
         <div class="prog-tags">
           <span class="ptag">Foundation course</span>
           <span class="ptag">Interview prep</span>
@@ -795,7 +801,7 @@ footer p{
 <section class="coaches-section" id="coaches">
   <p class="section-kicker">The team</p>
   <h2 class="section-h reveal">Coaches who've<br>been in your shoes</h2>
-  <p class="section-sub reveal reveal-delay-1">All of us competed, lost some rounds, won others, and figured out what actually matters. Now we pass that on.</p>
+  <p class="section-sub reveal reveal-delay-1">All of us competed, lost some rounds, won others, and figured out things that we can't wait to pass on</p>
 
   <div class="coaches-grid">
     <div class="coach-card reveal reveal-delay-1">
@@ -809,13 +815,11 @@ footer p{
         </div>
       </div>
       <div class="coach-info">
-        <p class="coach-name">Coach Name</p>
-        <p class="coach-role">Head Coach</p>
+        <p class="coach-name">Bella Wang</p>
+        <p class="coach-role">Coach</p>
         <div class="coach-divider"></div>
         <p class="coach-spec-label">Specialties</p>
         <div class="coach-specs">
-          <span class="cspec">BP Debate</span>
-          <span class="cspec">Rebuttal</span>
           <span class="cspec">Placeholder</span>
         </div>
         <p class="coach-spec-label">Awards</p>
@@ -837,13 +841,12 @@ footer p{
         </div>
       </div>
       <div class="coach-info">
-        <p class="coach-name">Coach Name</p>
-        <p class="coach-role">Senior Coach</p>
+        <p class="coach-name">Angela Long</p>
+        <p class="coach-role">Coach</p>
         <div class="coach-divider"></div>
         <p class="coach-spec-label">Specialties</p>
         <div class="coach-specs">
-          <span class="cspec">Asian Parliamentary</span>
-          <span class="cspec">Case Strategy</span>
+            <span class="cspec">Placeholder</span>
         </div>
         <p class="coach-spec-label">Awards</p>
         <ul class="coach-awards-list">
@@ -864,13 +867,12 @@ footer p{
         </div>
       </div>
       <div class="coach-info">
-        <p class="coach-name">Coach Name</p>
+        <p class="coach-name">Aqsa Wariach</p>
         <p class="coach-role">Coach</p>
         <div class="coach-divider"></div>
         <p class="coach-spec-label">Specialties</p>
         <div class="coach-specs">
-          <span class="cspec">Public Speaking</span>
-          <span class="cspec">Impromptu</span>
+          <span class="cspec">Placeholder</span>
         </div>
         <p class="coach-spec-label">Awards</p>
         <ul class="coach-awards-list">
@@ -891,13 +893,12 @@ footer p{
         </div>
       </div>
       <div class="coach-info">
-        <p class="coach-name">Coach Name</p>
+        <p class="coach-name">Manha Hussain</p>
         <p class="coach-role">Coach</p>
         <div class="coach-divider"></div>
         <p class="coach-spec-label">Specialties</p>
         <div class="coach-specs">
-          <span class="cspec">Interview Prep</span>
-          <span class="cspec">Exec Consulting</span>
+          <span class="cspec">Placeholder</span>
         </div>
         <p class="coach-spec-label">Awards</p>
         <ul class="coach-awards-list">
@@ -918,7 +919,7 @@ footer p{
 <section class="pricing-section" id="pricing">
   <p class="section-kicker">Pricing</p>
   <h2 class="section-h reveal">Honest rates.<br>Real value.</h2>
-  <p class="section-sub reveal reveal-delay-1">no hidden fees, no pressure. just pick the format that works for you.</p>
+  <p class="section-sub reveal reveal-delay-1">no hidden fees, no pressure.</p>
 
   <div class="pricing-inner">
     <div class="price-card reveal reveal-delay-1">
@@ -948,7 +949,7 @@ footer p{
   <div class="promo-card reveal">
     <div class="promo-tag">Opening deal</div>
     <div class="promo-body">
-      <h4>Bring a friend — both of you save 50%</h4>
+      <h4>Bring a friend & both of you save 50%!</h4>
       <p>Share your personal referral code. When <strong>both of you book</strong>, you each get <strong>50% off your first session</strong>. Grab it before it's gone.</p>
     </div>
     <div class="promo-flag" aria-hidden="true">50%</div>
@@ -973,7 +974,7 @@ footer p{
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo"><b>NAME</b></div>
-  <p>© 2025 NAME. All rights reserved.</p>
+  <p>© 2026 NAME. All rights reserved.</p>
   <div class="footer-links">
     <a href="#programs">Programs</a>
     <a href="#coaches">Coaches</a>
