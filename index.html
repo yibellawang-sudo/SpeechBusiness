@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>BAAM Speech & Debate Academy</title>
+<title>NAME</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/><style>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ink:#0E0E0E;
@@ -38,8 +39,14 @@ nav{
   transition:border-color .3s;
 }
 .nav-logo{
-  font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;
-  letter-spacing:-0.02em;color:var(--ink);text-decoration:none;
+  display:flex;align-items:center;
+  text-decoration:none;
+}
+.nav-logo img{
+  height:var(--logo-h, 36px); /* ← change this one value to resize */
+  width:auto;
+  display:block;
+  mix-blend-mode:multiply;
 }
 .nav-logo b{color:var(--violet)}
 .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
@@ -70,71 +77,159 @@ nav{
 /* ─────────────── HERO ─────────────── */
 .hero{
   min-height:100vh;
-  background:var(--ink);
+  background:#0a0614;
   display:flex;flex-direction:column;
   justify-content:flex-end;
   padding:62px 48px 72px;
   position:relative;overflow:hidden;
 }
-/* Floating background word */
-.hero-bg-word{
+
+/* ── Soft ambient glow behind the text grid ── */
+.hero-orb{
   position:absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-55%);
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:24vw;
-  color:transparent;
-  -webkit-text-stroke:1px rgba(124,58,237,0.1);
-  white-space:nowrap;letter-spacing:-0.04em;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(90px);
+  will-change:transform;
+}
+.hero-orb-1{
+  width:65vw;height:65vw;
+  top:-20vw;left:-15vw;
+  background:radial-gradient(circle,rgba(167,139,250,0.18) 0%,transparent 65%);
+  animation:orbDrift1 14s ease-in-out infinite alternate;
+}
+.hero-orb-2{
+  width:55vw;height:55vw;
+  bottom:-12vw;right:-10vw;
+  background:radial-gradient(circle,rgba(139,92,246,0.14) 0%,transparent 65%);
+  animation:orbDrift2 18s ease-in-out infinite alternate;
+}
+.hero-orb-3{
+  width:35vw;height:35vw;
+  top:35%;left:48%;
+  background:radial-gradient(circle,rgba(196,181,253,0.1) 0%,transparent 65%);
+  animation:orbDrift3 10s ease-in-out infinite alternate;
+}
+@keyframes orbDrift1{
+  from{transform:translate(0,0)}to{transform:translate(5vw,4vw)}
+}
+@keyframes orbDrift2{
+  from{transform:translate(0,0)}to{transform:translate(-4vw,-5vw)}
+}
+@keyframes orbDrift3{
+  from{transform:translate(-50%,0)}to{transform:translate(-50%,-3vw)}
+}
+
+/* ── Typographic wallpaper — the whole background IS the words ── */
+.hero-bg-scene{
+  position:absolute;inset:0;
   pointer-events:none;user-select:none;
-  transition:opacity .5s ease;
-  will-change:opacity;
+  perspective:1200px;
+  perspective-origin:50% 40%;
 }
-/* Noise texture overlay */
+.hero-bg-grid{
+  position:absolute;
+  /* wide and tall enough to fill even with 3D rotation */
+  width:200%;height:200%;
+  top:-50%;left:-50%;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  transform:rotateX(28deg) rotateY(-4deg);
+  transform-style:preserve-3d;
+  animation:gridSway 10s ease-in-out infinite alternate;
+  will-change:transform;
+}
+@keyframes gridSway{
+  from{transform:rotateX(28deg) rotateY(-4deg)}
+  to{transform:rotateX(22deg) rotateY(4deg)}
+}
+.hero-bg-row{
+  display:flex;
+  white-space:nowrap;
+  line-height:1;
+  /* alternate rows offset by half a word width for brick-pattern stagger */
+}
+.hero-bg-row:nth-child(even){
+  margin-left:-12em; /* offset even rows */
+}
+.hero-bg-row span{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(4rem,7vw,7rem);
+  letter-spacing:-0.02em;
+  padding:0 0.4em;
+  color:transparent;
+  white-space:nowrap;
+  transition:opacity .5s ease, color .5s ease;
+}
+/* Layered opacity — rows further "back" (top) are fainter */
+.hero-bg-row:nth-child(1) span{ -webkit-text-stroke:1px rgba(196,181,253,0.07); }
+.hero-bg-row:nth-child(2) span{ -webkit-text-stroke:1px rgba(196,181,253,0.10); }
+.hero-bg-row:nth-child(3) span{ -webkit-text-stroke:1px rgba(196,181,253,0.13); }
+.hero-bg-row:nth-child(4) span{ -webkit-text-stroke:1px rgba(196,181,253,0.16); }
+.hero-bg-row:nth-child(5) span{ -webkit-text-stroke:1px rgba(196,181,253,0.19); }
+.hero-bg-row:nth-child(6) span{ -webkit-text-stroke:1px rgba(167,139,250,0.22); }
+.hero-bg-row:nth-child(7) span{ -webkit-text-stroke:1px rgba(167,139,250,0.18); }
+.hero-bg-row:nth-child(8) span{ -webkit-text-stroke:1px rgba(167,139,250,0.14); }
+/* active word glows */
+.hero-bg-row span.word-active{
+  -webkit-text-stroke:1.5px rgba(196,181,253,0.55) !important;
+  text-shadow:0 0 60px rgba(167,139,250,0.35), 0 0 120px rgba(139,92,246,0.15);
+}
+
+/* ── Noise grain ── */
 .hero::after{
-  content:'';position:absolute;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events:none;opacity:0.5;
+  content:'';position:absolute;inset:0;z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;
 }
+
+/* ── Vignette — keeps edges dark, foreground text legible ── */
+.hero-vignette{
+  position:absolute;inset:0;z-index:2;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, rgba(8,3,18,0.65) 100%),
+    linear-gradient(to top, rgba(8,3,18,0.9) 0%, transparent 40%);
+  pointer-events:none;
+}
+
 .hero-corner-label{
   position:absolute;top:90px;right:48px;
-  text-align:right;
+  text-align:right;z-index:3;
   font-family:'DM Sans',sans-serif;
   font-size:0.7rem;font-weight:400;font-style:italic;
   letter-spacing:0.06em;
-  color:rgba(247,245,240,0.22);
+  color:rgba(247,245,240,0.2);
   line-height:2.2;
 }
-/* Rotated badge */
 .hero-badge{
-  position:absolute;top:110px;left:48px;
+  position:absolute;top:110px;left:48px;z-index:3;
   width:90px;height:90px;
   border-radius:50%;
-  border:1px solid rgba(124,58,237,0.3);
+  border:1px solid rgba(167,139,250,0.3);
   display:flex;align-items:center;justify-content:center;
   animation:spin 18s linear infinite;
 }
-.hero-badge svg{
-  position:absolute;width:100%;height:100%;
-}
+.hero-badge svg{position:absolute;width:100%;height:100%}
 .hero-badge-dot{
   width:5px;height:5px;border-radius:50%;
-  background:var(--violet);
+  background:rgba(196,181,253,0.9);
+  box-shadow:0 0 10px rgba(167,139,250,0.9);
 }
 @keyframes spin{to{transform:rotate(360deg)}}
 
-.hero-bottom{position:relative;z-index:1}
+.hero-bottom{position:relative;z-index:3}
 .hero-label{
   display:inline-flex;align-items:center;gap:8px;
   font-family:'DM Sans',sans-serif;
   font-size:0.7rem;font-weight:500;
   letter-spacing:0.14em;text-transform:uppercase;
-  color:rgba(124,58,237,0.9);
+  color:rgba(196,181,253,0.85);
   margin-bottom:24px;
 }
 .hero-label::before{
   content:'';display:block;width:20px;height:1px;
-  background:var(--violet);
+  background:rgba(196,181,253,0.6);
 }
 .hero h1{
   font-family:'Syne',sans-serif;font-weight:800;
@@ -143,12 +238,14 @@ nav{
   line-height:0.92;
   letter-spacing:-0.035em;
   margin-bottom:48px;
+  text-shadow:0 0 80px rgba(167,139,250,0.2);
 }
 .hero h1 .cycle-word{
   display:inline-block;
-  color:var(--violet);
+  color:rgba(196,181,253,1);
   transition:opacity .3s ease, transform .3s ease;
   will-change:transform,opacity;
+  text-shadow:0 0 50px rgba(167,139,250,0.6), 0 0 120px rgba(139,92,246,0.3);
 }
 .hero-foot{
   display:flex;align-items:flex-end;
@@ -241,13 +338,12 @@ nav{
 .cut-up svg{display:block;width:100%;height:100%}
 
 /* ─────────────── PROGRAMS ─────────────── */
-
 .programs{
   background:var(--paper);
   padding:72px 48px 56px;
 }
 .section-kicker{
-  font-family:'Syne',sans-serif;
+  font-family:'DM Sans',sans-serif;
   font-size:0.68rem;font-weight:500;
   letter-spacing:0.2em;text-transform:uppercase;
   color:var(--violet);margin-bottom:14px;
@@ -340,190 +436,129 @@ nav{
 .coaches-section .section-sub{color:rgba(247,245,240,0.4);font-size:1.2rem}
 .coaches-section .section-kicker{color:var(--violet)}
 .coaches-section .section-kicker::after{background:var(--violet);opacity:0.3}
+
 .coaches-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:14px;
-}
-.coach-card{
-  background:rgba(247,245,240,0.03);
-  border:1px solid rgba(247,245,240,0.07);
-  border-radius:10px;overflow:hidden;
-  transition:border-color .3s, transform .35s cubic-bezier(.34,1.3,.64,1), background .3s;
-  cursor:default;
-  position:relative;
-}
-.coach-card::after{
-  content:'';
-  position:absolute;inset:0;
-  background:radial-gradient(circle at 50% 0%,rgba(124,58,237,0.15),transparent 60%);
-  opacity:0;transition:opacity .35s;
-  pointer-events:none;
-}
-.coach-card:hover{
-  border-color:rgba(124,58,237,0.4);
-  transform:translateY(-8px) rotate(-0.5deg);
-  background:rgba(247,245,240,0.05);
-}
-.coach-card:hover::after{opacity:1}
-.coach-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-.coach-photo{
-  width:100%;aspect-ratio:3/4;
-  background:linear-gradient(160deg,#18102e 0%,#0d1810 60%,#0e0e0e 100%);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-}
-.coach-photo-inner{
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  opacity:0.18;
-  transition:opacity .3s;
-}
-.coach-card:hover .coach-photo-inner{opacity:0.28}
-.photo-caption{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.6rem;font-weight:500;letter-spacing:0.14em;
-  text-transform:uppercase;color:var(--paper);
-}
-.coach-info{padding:18px 20px 22px}
-.coach-name{
-  font-family:'Syne',sans-serif;font-weight:700;
-  font-size:0.98rem;color:var(--paper);margin-bottom:2px;
-  letter-spacing:-0.01em;
-}
-.coach-role{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.68rem;color:var(--violet);
-  font-weight:500;letter-spacing:0.1em;
-  text-transform:uppercase;margin-bottom:16px;
-}
-.coach-divider{
-  height:1px;background:rgba(247,245,240,0.07);
-  margin-bottom:14px;
-}
-.coach-card:hover .cspec{
-  border-color:rgba(124,58,237,0.3);
-  color:rgba(247,245,240,0.7);
-}
-.coach-awards-list{
-  list-style:none;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.75rem;font-weight:300;font-style:italic;
-  color:rgba(247,245,240,0.3);
-  line-height:1.9;
-}
-.coach-uni{
-  display:inline-block;
-  margin-top:12px;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.65rem;font-weight:600;
-  letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--violet);
-  background:rgba(124,58,237,0.1);
-  border:1px solid rgba(124,58,237,0.2);
-  padding:4px 12px;border-radius:100px;
-  transition:border-color .2s,background .2s;
-}
-.coach-card:hover .coach-uni{
-  background:rgba(124,58,237,0.15);
-  border-color:rgba(124,58,237,0.35);
-}
-  /* ─────────────── TESTIMONIALS ─────────────── */
-.testimonials-section{
-  background:var(--paper);
-  padding:88px 48px;
-}
-.testimonials-section .section-kicker{color:var(--violet)}
-.testimonials-section .section-kicker::after{background:var(--violet);opacity:0.4}
-.testimonials-section .section-h{margin-bottom:8px}
-.testimonials-section .section-sub{margin-bottom:48px}
-.testimonials-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
   gap:16px;
   align-items:start;
 }
-.tcard{
-  border:1px solid rgba(14,14,14,0.08);
-  border-radius:12px;
-  padding:32px;
-  background:var(--white);
+
+/* Card is a full portrait — photo fills everything */
+.coach-card{
   position:relative;
-  transition:transform .3s cubic-bezier(.34,1.3,.64,1), box-shadow .3s, border-color .3s;
+  border-radius:16px;
+  overflow:hidden;
+  cursor:default;
+  aspect-ratio:3/4;
+  background:#0a0512;
 }
-.tcard:hover{
-  transform:translateY(-6px);
-  box-shadow:0 16px 48px rgba(14,14,14,0.08);
-  border-color:rgba(124,58,237,0.2);
+/* alternating offset for editorial rhythm */
+.coach-card:nth-child(2){margin-top:40px}
+.coach-card:nth-child(4){margin-top:40px}
+
+/* Photo layer */
+.coach-photo{
+  position:absolute;inset:0;
+  overflow:hidden;
 }
-/* offset the middle card down slightly for visual rhythm */
-.tcard:nth-child(2){margin-top:28px}
-.tcard-quote{
-  font-family:'Fraunces',serif;
-  font-size:0.78rem;font-weight:400;
-  color:var(--violet);
-  opacity:0.4;
-  margin-bottom:12px;
-  line-height:1;
-  font-style:normal;
-  font-size:2.8rem;
+.coach-photo img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
   display:block;
-  letter-spacing:-0.02em;
+  transition:transform .7s cubic-bezier(.25,.46,.45,.94);
+  filter:brightness(0.85) saturate(0.95);
 }
-.tcard-text{
-  font-family:'Fraunces',serif;
-  font-size:1rem;font-weight:300;font-style:italic;
-  color:var(--ink);
-  line-height:1.7;
-  margin-bottom:24px;
-}
-.tcard-divider{
-  height:1px;
-  background:rgba(14,14,14,0.07);
-  margin-bottom:18px;
-}
-.tcard-author{
-  display:flex;align-items:center;gap:12px;
-}
-.tcard-avatar{
-  width:36px;height:36px;border-radius:50%;
-  background:var(--violet-lt);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-}
-.tcard-avatar span{
-  font-family:'Syne',sans-serif;font-weight:700;
-  font-size:0.72rem;color:var(--violet);
-  letter-spacing:-0.01em;
-}
-.tcard-name{
+.coach-card:hover .coach-photo img{transform:scale(1.05)}
+
+/* University badge — top right, slightly rotated, like a stamp */
+.coach-uni{
+  position:absolute;
+  top:14px;right:14px;
+  z-index:4;
   font-family:'DM Sans',sans-serif;
-  font-size:0.82rem;font-weight:500;
-  color:var(--ink);margin-bottom:2px;
+  font-size:0.6rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--white);
+  background:var(--violet);
+  padding:6px 13px;border-radius:100px;
+  box-shadow:0 3px 14px rgba(124,58,237,0.55);
+  transform:rotate(2deg);
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .3s;
+  white-space:nowrap;
 }
-.tcard-meta{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.7rem;font-weight:300;
-  color:var(--mid);
-  letter-spacing:0.02em;
-}
-.tcard-stars{
-  display:flex;gap:3px;margin-bottom:16px;
-}
-.tcard-stars span{
-  color:var(--violet);font-size:0.7rem;
-  opacity:0.7;
+.coach-card:hover .coach-uni{
+  transform:rotate(0deg) scale(1.06);
+  box-shadow:0 6px 24px rgba(124,58,237,0.65);
 }
 
-@media(max-width:960px){
-  .testimonials-section{padding-left:24px;padding-right:24px}
-  .testimonials-grid{grid-template-columns:1fr}
-  .tcard:nth-child(2){margin-top:0}
+/* Gradient overlay — slides up on hover to reveal awards */
+.coach-overlay{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  z-index:3;
+  background:linear-gradient(to top,
+    rgba(8,3,18,0.98) 0%,
+    rgba(8,3,18,0.93) 45%,
+    rgba(8,3,18,0.55) 72%,
+    transparent 100%);
+  padding:32px 20px 22px;
+  transform:translateY(44%);
+  transition:transform .5s cubic-bezier(.25,.46,.45,.94);
+}
+.coach-card:hover .coach-overlay{transform:translateY(0)}
+
+/* Name */
+.coach-name{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.15rem;color:var(--white);
+  letter-spacing:-0.02em;line-height:1.1;
+  margin-bottom:3px;
+}
+/* Role */
+.coach-role{
+  font-family:'DM Sans',sans-serif;
+  font-size:0.62rem;color:var(--violet);
+  font-weight:600;letter-spacing:0.14em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+/* Thin rule between name block and awards */
+.coach-divider{
+  height:1px;
+  background:rgba(247,245,240,0.1);
+  margin-bottom:14px;
+}
+
+/* Awards */
+.coach-awards-label{
+  font-family:'DM Sans',sans-serif;
+  font-size:0.58rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(247,245,240,0.28);
+  margin-bottom:9px;
+}
+.coach-awards-list{
+  list-style:none;margin:0;padding:0;
+}
+.coach-awards-list li{
+  font-family:'DM Sans',sans-serif;
+  font-size:0.8rem;font-weight:400;
+  color:rgba(247,245,240,0.8);
+  line-height:1.45;
+  padding:5px 0 5px 16px;
+  border-bottom:1px solid rgba(247,245,240,0.06);
+  position:relative;
+}
+.coach-awards-list li:last-child{border-bottom:none}
+.coach-awards-list li::before{
+  content:'';
+  position:absolute;left:0;top:12px;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--violet);
+  box-shadow:0 0 8px rgba(124,58,237,0.8);
 }
 
 /* ─────────────── PRICING ─────────────── */
@@ -906,83 +941,6 @@ nav{
   .free-call-ghost{display:none}
 }
 
-/* ─────────────── FAQ ─────────────── */
-.faq-section{
-  background:var(--paper);
-  padding:88px 48px;
-}
-.faq-section .section-kicker{color:var(--violet)}
-.faq-section .section-kicker::after{background:var(--violet);opacity:0.4}
-.faq-section .section-h{margin-bottom:8px}
-.faq-section .section-sub{margin-bottom:52px}
-.faq-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:2px;
-  background:rgba(14,14,14,0.07);
-  border:1px solid rgba(14,14,14,0.07);
-  border-radius:14px;
-  overflow:hidden;
-}
-.faq-item{
-  background:var(--white);
-  padding:36px 40px;
-  cursor:pointer;
-  position:relative;
-  transition:background .2s;
-}
-.faq-item:hover{background:#FDFCFB}
-.faq-item.open{background:var(--violet-lt)}
-.faq-q{
-  display:flex;align-items:flex-start;justify-content:space-between;gap:20px;
-}
-.faq-q-text{
-  font-family:'Syne',sans-serif;font-weight:700;
-  font-size:1rem;color:var(--ink);
-  letter-spacing:-0.01em;line-height:1.3;
-  transition:color .2s;
-}
-.faq-item.open .faq-q-text{color:var(--violet)}
-.faq-icon{
-  width:22px;height:22px;flex-shrink:0;
-  border-radius:50%;
-  border:1.5px solid rgba(14,14,14,0.15);
-  display:flex;align-items:center;justify-content:center;
-  transition:border-color .2s, background .2s, transform .3s ease;
-  margin-top:2px;
-}
-.faq-item.open .faq-icon{
-  background:var(--violet);
-  border-color:var(--violet);
-  transform:rotate(45deg);
-}
-.faq-icon svg{
-  width:10px;height:10px;
-  stroke:var(--mid);
-  transition:stroke .2s;
-}
-.faq-item.open .faq-icon svg{stroke:var(--white)}
-.faq-a{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.9rem;font-weight:300;
-  color:var(--mid);line-height:1.75;
-  max-height:0;overflow:hidden;
-  transition:max-height .4s ease, margin-top .3s ease, opacity .3s ease;
-  opacity:0;
-  margin-top:0;
-}
-.faq-item.open .faq-a{
-  max-height:200px;
-  opacity:1;
-  margin-top:14px;
-}
-.faq-a strong{color:var(--ink);font-weight:500}
-
-@media(max-width:960px){
-  .faq-section{padding-left:24px;padding-right:24px}
-  .faq-grid{grid-template-columns:1fr}
-}
-
 /* ─────────────── FOOTER ─────────────── */
 footer{
   background:var(--ink);
@@ -1028,6 +986,9 @@ footer p{
   .hero,.programs,.coaches-section,.pricing-section,.call-section,.cta-section{padding-left:24px;padding-right:24px}
   .hero-corner-label,.hero-badge{display:none}
   .coaches-grid{grid-template-columns:repeat(2,1fr)}
+  .coach-card:nth-child(2){margin-top:0}
+  .coach-card:nth-child(4){margin-top:0}
+  .coach-overlay{transform:translateY(0)}
   .pricing-inner{grid-template-columns:1fr}
   .promo-card{grid-template-columns:1fr;gap:16px}
   .call-section{grid-template-columns:1fr;gap:48px}
@@ -1048,7 +1009,7 @@ footer p{
 <!-- NAV -->
 <nav id="mainNav">
   <a class="nav-logo" href="#">
-    <img src="baam_logo.png" alt="BAAM Speech & Debate Academy" style="height:38px;width:auto;">
+    <img src="baam_logo.png" alt="BAAM Speech & Debate Academy"/>
   </a>
   <ul class="nav-links">
     <li><a href="#programs">Programs</a></li>
@@ -1060,7 +1021,20 @@ footer p{
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg-word" id="bgWord">SPEAK</div>
+
+  <!-- Background layers -->
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+
+  <!-- Tiling word grid -->
+  <div class="hero-bg-scene" aria-hidden="true">
+    <div class="hero-bg-grid" id="bgGrid">
+      <!-- rows injected by JS -->
+    </div>
+  </div>
+
+  <div class="hero-vignette" aria-hidden="true"></div>
 
   <!-- Spinning ring badge -->
   <div class="hero-badge" aria-hidden="true">
@@ -1083,13 +1057,12 @@ footer p{
   </div>
 
   <div class="hero-bottom">
-    <p class="hero-label">Est. 2026</p>
+    <p class="hero-label">Est. 2025</p>
     <h1>Learn to<br><span class="cycle-word" id="cycleWord">debate.</span></h1>
     <div class="hero-foot">
       <div>
         <p class="hero-sub">
-          <em>Debate Competition Prep · Public Speaking Coaching · Confidence Building</em><br>
-          The future belongs to those who can communicate it.
+          <em>SLOGAN</em> — coaching built by competitors, for the next generation. whether you're walking into a round or a room that matters, we get you ready.
         </p>
         <div class="hero-actions">
           <a href="#programs" class="btn-v">See programs</a>
@@ -1135,14 +1108,14 @@ footer p{
 <section class="programs" id="programs">
   <p class="section-kicker">What we do</p>
   <h2 class="section-h reveal">Three ways we make<br>you unstoppable</h2>
-  <p class="section-sub reveal reveal-delay-1">Because one size fits nobody. pick the path that fits your goals, your schedule, your ambition.</p>
+  <p class="section-sub reveal reveal-delay-1">Because one size fits nobody — pick the path that fits your goal, your schedule, your ambition.</p>
 
   <div class="programs-stack">
     <div class="program-row reveal reveal-delay-1">
       <div class="prog-num">1</div>
       <div class="prog-content">
         <h3>Competition Prep</h3>
-        <p>Whatever competition you're preparing for, we've got you. We help with piece selection, editing outside of meeting times, mock competitions, and every drill and strategy we found useful in our own competitive journeys & tailor it to your specific event and goals.</p>
+        <p>Whatever competition you're preparing for, we've got you. We help with piece selection, editing outside of meeting times, mock competitions, and every drill and strategy we found useful in our own competitive journeys — all tailored to your specific event and goals.</p>
         <div class="prog-tags">
           <span class="ptag">Any competition</span>
           <span class="ptag">Piece selection</span>
@@ -1158,7 +1131,7 @@ footer p{
       <div class="prog-num">2</div>
       <div class="prog-content">
         <h3>Debate & Public Speaking</h3>
-        <p>Structured courses across every major format. Learn what makes an argument actually land, think on the spot, and win the room</p>
+        <p>Structured courses across every major format. Learn what makes an argument actually land — and how to win the room, not just the flow.</p>
         <div class="prog-tags">
           <span class="ptag">British Parliamentary</span>
           <span class="ptag">American Parliamentary</span>
@@ -1173,7 +1146,7 @@ footer p{
       <div class="prog-num">3</div>
       <div class="prog-content">
         <h3>General Speech & Consulting</h3>
-        <p>A foundation course for anyone who wants to communicate better & a consulting line to prep for interviews, presentations, and every moment <strong>you</strong> care about</p>
+        <p>A foundation course for anyone who wants to communicate better — and a consulting line for interviews, presentations, and the moments that actually count.</p>
         <div class="prog-tags">
           <span class="ptag">Foundation course</span>
           <span class="ptag">Interview prep</span>
@@ -1195,145 +1168,83 @@ footer p{
 <section class="coaches-section" id="coaches">
   <p class="section-kicker">The team</p>
   <h2 class="section-h reveal">Coaches who've<br>been in your shoes</h2>
-  <p class="section-sub reveal reveal-delay-1">All of us competed, lost some rounds, won others, and figured out things we can't wait to pass on</p>
+  <p class="section-sub reveal reveal-delay-1">All of us competed, lost some rounds, won others, and figured out what actually matters. Now we pass that on.</p>
 
   <div class="coaches-grid">
+
     <div class="coach-card reveal reveal-delay-1">
       <div class="coach-photo">
-        <img src="bella.png" alt="Bella Wang" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <img src="bella.jpg" alt="Bella Wang"/>
       </div>
-      <div class="coach-info">
+      <p class="coach-uni">Caltech</p>
+      <div class="coach-overlay">
         <p class="coach-name">Bella Wang</p>
         <p class="coach-role">Coach</p>
         <div class="coach-divider"></div>
-        <p class="coach-spec-label">Awards</p>
+        <p class="coach-awards-label">Awards</p>
         <ul class="coach-awards-list">
           <li>Top overall speaker nationally</li>
           <li>7× parli debate winner nationally</li>
           <li>2× impromptu winner provincially</li>
           <li>+5 more national & international awards</li>
         </ul>
-        <p class="coach-uni">Caltech</p>
       </div>
     </div>
 
     <div class="coach-card reveal reveal-delay-2">
       <div class="coach-photo">
-        <img src="angela.png" alt="Angela Long" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <img src="angela.png" alt="Angela Long"/>
       </div>
-      <div class="coach-info">
+      <p class="coach-uni">Emory University</p>
+      <div class="coach-overlay">
         <p class="coach-name">Angela Long</p>
         <p class="coach-role">Coach</p>
         <div class="coach-divider"></div>
-        <p class="coach-spec-label">Awards</p>
+        <p class="coach-awards-label">Awards</p>
         <ul class="coach-awards-list">
           <li>Top overall speaker in debate provincially</li>
           <li>3× parli debate winner provincially</li>
           <li>2× after dinner speaking winner provincially</li>
           <li>+5 more national & international awards</li>
         </ul>
-        <p class="coach-uni">Emory University</p>
       </div>
     </div>
 
     <div class="coach-card reveal reveal-delay-3">
       <div class="coach-photo">
-        <img src="aqsa.png" alt="Aqsa Wariach" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <img src="aqsa.jpg" alt="Aqsa Wariach"/>
       </div>
-      <div class="coach-info">
+      <p class="coach-uni">Western (Ivey)</p>
+      <div class="coach-overlay">
         <p class="coach-name">Aqsa Wariach</p>
         <p class="coach-role">Coach</p>
         <div class="coach-divider"></div>
-        <p class="coach-spec-label">Awards</p>
+        <p class="coach-awards-label">Awards</p>
         <ul class="coach-awards-list">
           <li>Top overall speaker provincially</li>
           <li>3× parli debate winner provincially</li>
           <li>3× persuasive speaking winner provincially</li>
           <li>+5 more national & international awards</li>
         </ul>
-        <p class="coach-uni">Queens University</p>
       </div>
     </div>
 
     <div class="coach-card reveal reveal-delay-4">
       <div class="coach-photo">
-        <img src="manha.png" alt="Manha Hussain" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <img src="manha.jpg" alt="Manha Hussain"/>
       </div>
-      <div class="coach-info">
+      <p class="coach-uni">Cornell University</p>
+      <div class="coach-overlay">
         <p class="coach-name">Manha Hussain</p>
         <p class="coach-role">Coach</p>
         <div class="coach-divider"></div>
-        <p class="coach-spec-label">Awards</p>
+        <p class="coach-awards-label">Awards</p>
         <ul class="coach-awards-list">
           <li>Top after-dinner speech internationally</li>
           <li>6× parli debate winner provincially</li>
           <li>3× impromptu winner provincially</li>
           <li>+5 more national & international awards</li>
         </ul>
-        <p class="coach-uni">Cornell University</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CUT TESTIMONIALS INTO PAPER -->
-<div class="cut-down" style="background:var(--ink)">
-  <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><polygon points="0,72 1440,0 1440,72" fill="#F7F5F0"/></svg>
-</div>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials-section" id="testimonials">
-  <p class="section-kicker">What people say</p>
-  <h2 class="section-h reveal">Don't just take<br>our word for it</h2>
-  <p class="section-sub reveal reveal-delay-1">Real feedback from real students</p>
-
-  <div class="testimonials-grid">
-
-    <div class="tcard reveal reveal-delay-1">
-      <span class="tcard-quote">"</span>
-      <p class="tcard-text">Feedback placeholder</p>
-      <div class="tcard-stars">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-      </div>
-      <div class="tcard-divider"></div>
-      <div class="tcard-author">
-        <div class="tcard-avatar"><span>AB</span></div>
-        <div>
-          <p class="tcard-name">Name Placeholder</p>
-          <p class="tcard-meta">Program · Year</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="tcard reveal reveal-delay-2">
-      <span class="tcard-quote">"</span>
-      <p class="tcard-text">Feedback placeholder</p>
-      <div class="tcard-stars">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-      </div>
-      <div class="tcard-divider"></div>
-      <div class="tcard-author">
-        <div class="tcard-avatar"><span>CD</span></div>
-        <div>
-          <p class="tcard-name">Name Placeholder</p>
-          <p class="tcard-meta">Program · Year</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="tcard reveal reveal-delay-3">
-      <span class="tcard-quote">"</span>
-      <p class="tcard-text">Feedback placeholder</p>
-      <div class="tcard-stars">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-      </div>
-      <div class="tcard-divider"></div>
-      <div class="tcard-author">
-        <div class="tcard-avatar"><span>EF</span></div>
-        <div>
-          <p class="tcard-name">Name Placeholder</p>
-          <p class="tcard-meta">Program · Year</p>
-        </div>
       </div>
     </div>
 
@@ -1349,7 +1260,7 @@ footer p{
 <section class="pricing-section" id="pricing">
   <p class="section-kicker">Pricing</p>
   <h2 class="section-h reveal">Honest rates.<br>Real value.</h2>
-  <p class="section-sub reveal reveal-delay-1">no hidden fees, no pressure.</p>
+  <p class="section-sub reveal reveal-delay-1">no hidden fees, no pressure. just pick the format that works for you.</p>
 
   <div class="pricing-inner">
     <div class="price-card reveal reveal-delay-1">
@@ -1371,7 +1282,7 @@ footer p{
       <ul class="price-items">
         <li>Collaborative, peer-driven environment</li>
         <li>Live practice rounds with real feedback</li>
-        <li>Capped at 20 students per coach for you</li>
+        <li>Intentionally capped at 20 students per coach</li>
       </ul>
     </div>
   </div>
@@ -1379,8 +1290,8 @@ footer p{
   <div class="promo-card reveal">
     <div class="promo-tag">Opening deal</div>
     <div class="promo-body">
-      <h4>Bring a friend & both of you save 50%!</h4>
-      <p>Share your personal referral code. When <strong>both of you book</strong>, you each get <strong>50% off your first session</strong>! Grab it before it's gone!</p>
+      <h4>Bring a friend — both of you save 50%</h4>
+      <p>Share your personal referral code. When <strong>both of you book</strong>, you each get <strong>50% off your first session</strong>. Grab it before it's gone.</p>
     </div>
     <div class="promo-flag" aria-hidden="true">50%</div>
   </div>
@@ -1405,7 +1316,7 @@ footer p{
       free.
     </h2>
     <p class="call-body reveal reveal-delay-1">
-      Not sure which program fits, or just want to get a feel for how we work? <strong>Call us and we'll figure it out together.</strong> 
+      Not sure which program fits, or just want to get a feel for how we work? <strong>Call us and we'll figure it out together.</strong> No pitch, no pressure — just an honest conversation about what you're looking for and whether we're the right fit.
     </p>
     <a href="tel:+1-000-000-0000" class="btn-call reveal reveal-delay-2">
       <svg class="btn-call-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1427,94 +1338,18 @@ footer p{
         </svg>
       </div>
       <div class="call-quotes">
-        <p class="call-quote-text">"I didn't even know which format to try & one call sorted everything."</p>
+        <p class="call-quote-text">"I didn't even know which format to try — one call sorted everything."</p>
         <p class="call-quote-attr">a future client, hopefully</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CUT INTO PAPER FOR FAQ -->
+<!-- CUT CALL INTO CTA -->
 <div class="cut-down" style="background:var(--ink)">
   <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><polygon points="0,72 1440,0 1440,72" fill="#F7F5F0"/></svg>
 </div>
 
-<!-- FAQ -->
-<section class="faq-section" id="faq">
-  <p class="section-kicker">FAQ</p>
-  <h2 class="section-h reveal">The stuff people<br>always ask</h2>
-  <p class="section-sub reveal reveal-delay-1">If something's still unclear, just call us — that's what the free consultation is for.</p>
-
-  <div class="faq-grid reveal reveal-delay-1">
-
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span class="faq-q-text">Where are sessions held?</span>
-        <div class="faq-icon">
-          <svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-      <p class="faq-a">Sessions are held <strong>online via Zoom</strong>, so you can join from anywhere. All you need is a stable internet connection and somewhere quiet to sit.</p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span class="faq-q-text">Is there an in-person option?</span>
-        <div class="faq-icon">
-          <svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-      <p class="faq-a">Right now we run everything <strong>online only</strong>. It keeps scheduling flexible and means we can work with students no matter where they're based.</p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span class="faq-q-text">What ages do you coach?</span>
-        <div class="faq-icon">
-          <svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-      <p class="faq-a">We primarily coach <strong>middle and high school students</strong>, but our consulting programs are open to anyone, professionals included. Not sure if you fit? Just ask us.</p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span class="faq-q-text">How long is a session?</span>
-        <div class="faq-icon">
-          <svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-      <p class="faq-a">Standard sessions are <strong>one hour</strong>. If you bundle 10 sessions, your coach is also available to review and edit your work between classes at no extra charge.</p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span class="faq-q-text">What happens after I click "Book a session"?</span>
-        <div class="faq-icon">
-          <svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-      <p class="faq-a">We'll reach out within <strong>24 hours</strong> to confirm your details, match you with the right coach, and lock in a time that works for you</p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span class="faq-q-text">Can I try one session before committing?</span>
-        <div class="faq-icon">
-          <svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-      </div>
-      <p class="faq-a">Absolutely. There's <strong>no minimum commitment</strong>, book a single session and see how it goes. The 10-session bundle is there when you're ready</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- CUT FAQ INTO CTA -->
-<div class="cut-up" style="background:var(--paper)">
-  <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><polygon points="0,0 1440,72 0,72" fill="#F7F5F0"/></svg>
-</div>
-  
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <h2 class="reveal">Your next<br><span>speech</span><br>starts here.</h2>
@@ -1527,8 +1362,8 @@ footer p{
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><b>BAAM</b> Speech & Debate</div>
-  <p>© 2026 BAAM Speech & Debate Academy. All rights reserved.</p>
+  <div class="footer-logo"><b>NAME</b></div>
+  <p>© 2025 NAME. All rights reserved.</p>
   <div class="footer-links">
     <a href="#programs">Programs</a>
     <a href="#coaches">Coaches</a>
@@ -1538,27 +1373,61 @@ footer p{
 </footer>
 
 <script>
-// ── Cycle word in hero ──
-const words    = ['debate.','speak.','compete.','win.'];
-const bgWords  = ['DEBATE','SPEAK','COMPETE','WIN'];
+// ── Build tiling word grid ──
+const words     = ['DEBATE','SPEAK','COMPETE','WIN'];
+const wordsFront= ['debate.','speak.','compete.','win.'];
 let wi = 0;
 const cycleEl  = document.getElementById('cycleWord');
-const bgEl     = document.getElementById('bgWord');
+const bgGrid   = document.getElementById('bgGrid');
+
+const ROWS = 8;
+const COLS = 7;
+
+function buildGrid(word) {
+  if(!bgGrid) return;
+  bgGrid.innerHTML = '';
+  for(let r = 0; r < ROWS; r++){
+    const row = document.createElement('div');
+    row.className = 'hero-bg-row';
+    for(let c = 0; c < COLS; c++){
+      const s = document.createElement('span');
+      s.textContent = word;
+      s.style.transition = 'opacity .4s ease';
+      row.appendChild(s);
+    }
+    bgGrid.appendChild(row);
+  }
+}
+buildGrid(words[wi]);
 
 function cycleWord() {
-  cycleEl.style.opacity = '0';
-  cycleEl.style.transform = 'translateY(14px)';
-  bgEl.style.opacity = '0';
+  if(cycleEl){
+    cycleEl.style.opacity = '0';
+    cycleEl.style.transform = 'translateY(14px)';
+  }
+  // staggered fade out across all spans
+  const allSpans = bgGrid ? Array.from(bgGrid.querySelectorAll('span')) : [];
+  allSpans.forEach((s, i) => {
+    setTimeout(() => { s.style.opacity = '0'; }, i * 8);
+  });
+
   setTimeout(() => {
     wi = (wi + 1) % words.length;
-    cycleEl.textContent = words[wi];
-    bgEl.textContent   = bgWords[wi];
-    cycleEl.style.opacity = '1';
-    cycleEl.style.transform = 'translateY(0)';
-    bgEl.style.opacity = '1';
-  }, 300);
+    buildGrid(words[wi]);
+    // staggered fade in
+    const newSpans = bgGrid ? Array.from(bgGrid.querySelectorAll('span')) : [];
+    newSpans.forEach((s, i) => {
+      s.style.opacity = '0';
+      setTimeout(() => { s.style.opacity = '1'; }, 40 + i * 7);
+    });
+    if(cycleEl){
+      cycleEl.textContent = wordsFront[wi];
+      cycleEl.style.opacity = '1';
+      cycleEl.style.transform = 'translateY(0)';
+    }
+  }, 400);
 }
-setInterval(cycleWord, 2400);
+setInterval(cycleWord, 2800);
 
 // ── Scroll reveal ──
 const revealEls = document.querySelectorAll('.reveal');
@@ -1595,7 +1464,32 @@ window.addEventListener('scroll', () => {
   document.getElementById('mainNav').style.borderBottomColor =
     window.scrollY > 10 ? 'rgba(14,14,14,0.13)' : 'rgba(14,14,14,0.07)';
 }, {passive:true});
-  // ── FAQ accordion ──
+
+// ── Hero parallax on mouse move ──
+const hero    = document.querySelector('.hero');
+const orb1    = document.querySelector('.hero-orb-1');
+const orb2    = document.querySelector('.hero-orb-2');
+const orb3    = document.querySelector('.hero-orb-3');
+const bgGridEl= document.getElementById('bgGrid');
+if(hero){
+  hero.addEventListener('mousemove', (e) => {
+    const rx = (e.clientX / window.innerWidth  - 0.5);
+    const ry = (e.clientY / window.innerHeight - 0.5);
+    if(orb1) orb1.style.transform = `translate(${rx*28}px,${ry*20}px)`;
+    if(orb2) orb2.style.transform = `translate(${rx*-20}px,${ry*-16}px)`;
+    if(orb3) orb3.style.transform = `translate(-50%,${ry*10}px)`;
+    if(bgGridEl) bgGridEl.style.transform =
+      `rotateX(${28 + ry*5}deg) rotateY(${-4 + rx*8}deg)`;
+  });
+  hero.addEventListener('mouseleave', () => {
+    if(orb1) orb1.style.transform = '';
+    if(orb2) orb2.style.transform = '';
+    if(orb3) orb3.style.transform = 'translate(-50%,0)';
+    if(bgGridEl) bgGridEl.style.transform = '';
+  });
+}
+
+// ── FAQ accordion ──
 function toggleFaq(item) {
   const isOpen = item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
