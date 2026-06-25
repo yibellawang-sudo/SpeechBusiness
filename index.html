@@ -366,6 +366,13 @@ nav{
   background:rgba(247,245,240,0.05);
 }
 .coach-card:hover::after{opacity:1}
+.coach-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
 .coach-photo{
   width:100%;aspect-ratio:3/4;
   background:linear-gradient(160deg,#18102e 0%,#0d1810 60%,#0e0e0e 100%);
@@ -399,22 +406,6 @@ nav{
   height:1px;background:rgba(247,245,240,0.07);
   margin-bottom:14px;
 }
-.coach-spec-label{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.6rem;font-weight:500;
-  letter-spacing:0.16em;text-transform:uppercase;
-  color:rgba(247,245,240,0.25);margin-bottom:7px;
-}
-.coach-specs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
-.cspec{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.62rem;font-weight:400;
-  color:rgba(247,245,240,0.5);
-  background:rgba(247,245,240,0.05);
-  border:1px solid rgba(247,245,240,0.08);
-  padding:3px 9px;border-radius:100px;
-  transition:border-color .2s,color .2s;
-}
 .coach-card:hover .cspec{
   border-color:rgba(124,58,237,0.3);
   color:rgba(247,245,240,0.7);
@@ -425,6 +416,22 @@ nav{
   font-size:0.75rem;font-weight:300;font-style:italic;
   color:rgba(247,245,240,0.3);
   line-height:1.9;
+}
+.coach-uni{
+  display:inline-block;
+  margin-top:12px;
+  font-family:'DM Sans',sans-serif;
+  font-size:0.65rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--violet);
+  background:rgba(124,58,237,0.1);
+  border:1px solid rgba(124,58,237,0.2);
+  padding:4px 12px;border-radius:100px;
+  transition:border-color .2s,background .2s;
+}
+.coach-card:hover .coach-uni{
+  background:rgba(124,58,237,0.15);
+  border-color:rgba(124,58,237,0.35);
 }
   /* ─────────────── TESTIMONIALS ─────────────── */
 .testimonials-section{
@@ -1190,13 +1197,7 @@ footer p{
   <div class="coaches-grid">
     <div class="coach-card reveal reveal-delay-1">
       <div class="coach-photo">
-        <div class="coach-photo-inner">
-          <svg width="46" height="46" viewBox="0 0 46 46" fill="none">
-            <circle cx="23" cy="18" r="9" stroke="#F7F5F0" stroke-width="1.2"/>
-            <path d="M3 43c0-9 9-16 20-16s20 7 20 16" stroke="#F7F5F0" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          <span class="photo-caption">Photo coming</span>
-        </div>
+        <img src="bella.jpg" alt="Bella Wang" style="width:100%;height:100%;object-fit:cover;display:block;"/>
       </div>
       <div class="coach-info">
         <p class="coach-name">Bella Wang</p>
@@ -1208,21 +1209,18 @@ footer p{
         </div>
         <p class="coach-spec-label">Awards</p>
         <ul class="coach-awards-list">
-          <li>Award placeholder</li>
-          <li>Result placeholder</li>
+          <li>Top overall speaker nationally</li>
+          <li>7× parli debate winner nationally</li>
+          <li>2× impromptu winner provincially</li>
+          <li>+5 more national & international awards</li>
         </ul>
+        <p class="coach-uni">Caltech</p>
       </div>
     </div>
 
     <div class="coach-card reveal reveal-delay-2">
       <div class="coach-photo">
-        <div class="coach-photo-inner">
-          <svg width="46" height="46" viewBox="0 0 46 46" fill="none">
-            <circle cx="23" cy="18" r="9" stroke="#F7F5F0" stroke-width="1.2"/>
-            <path d="M3 43c0-9 9-16 20-16s20 7 20 16" stroke="#F7F5F0" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          <span class="photo-caption">Photo coming</span>
-        </div>
+        <img src="angela.png" alt="Angela Long" style="width:100%;height:100%;object-fit:cover;display:block;"/>
       </div>
       <div class="coach-info">
         <p class="coach-name">Angela Long</p>
@@ -1234,21 +1232,18 @@ footer p{
         </div>
         <p class="coach-spec-label">Awards</p>
         <ul class="coach-awards-list">
-          <li>Award placeholder</li>
-          <li>Result placeholder</li>
+          <li>Top overall speaker in debate provincially</li>
+          <li>3× parli debate winner provincially</li>
+          <li>2× after dinner speaking winner provincially</li>
+          <li>+5 more national & international awards</li>
         </ul>
+        <p class="coach-uni">Emory University</p>
       </div>
     </div>
 
     <div class="coach-card reveal reveal-delay-3">
       <div class="coach-photo">
-        <div class="coach-photo-inner">
-          <svg width="46" height="46" viewBox="0 0 46 46" fill="none">
-            <circle cx="23" cy="18" r="9" stroke="#F7F5F0" stroke-width="1.2"/>
-            <path d="M3 43c0-9 9-16 20-16s20 7 20 16" stroke="#F7F5F0" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          <span class="photo-caption">Photo coming</span>
-        </div>
+        <img src="aqsa.jpg" alt="Aqsa Wariach" style="width:100%;height:100%;object-fit:cover;display:block;"/>
       </div>
       <div class="coach-info">
         <p class="coach-name">Aqsa Wariach</p>
@@ -1260,21 +1255,18 @@ footer p{
         </div>
         <p class="coach-spec-label">Awards</p>
         <ul class="coach-awards-list">
-          <li>Award placeholder</li>
-          <li>Result placeholder</li>
+          <li>Top overall speaker provincially</li>
+          <li>3× parli debate winner provincially</li>
+          <li>3× persuasive speaking winner provincially</li>
+          <li>+5 more national & international awards</li>
         </ul>
+        <p class="coach-uni">Queens University</p>
       </div>
     </div>
 
     <div class="coach-card reveal reveal-delay-4">
       <div class="coach-photo">
-        <div class="coach-photo-inner">
-          <svg width="46" height="46" viewBox="0 0 46 46" fill="none">
-            <circle cx="23" cy="18" r="9" stroke="#F7F5F0" stroke-width="1.2"/>
-            <path d="M3 43c0-9 9-16 20-16s20 7 20 16" stroke="#F7F5F0" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          <span class="photo-caption">Photo coming</span>
-        </div>
+        <img src="manha.jpg" alt="Manha Hussain" style="width:100%;height:100%;object-fit:cover;display:block;"/>
       </div>
       <div class="coach-info">
         <p class="coach-name">Manha Hussain</p>
@@ -1282,13 +1274,16 @@ footer p{
         <div class="coach-divider"></div>
         <p class="coach-spec-label">Specialties</p>
         <div class="coach-specs">
-          <<span class="cspec">Placeholder</span>
+          <span class="cspec">Placeholder</span>
         </div>
         <p class="coach-spec-label">Awards</p>
         <ul class="coach-awards-list">
-          <li>Award placeholder</li>
-          <li>Result placeholder</li>
+          <li>Top after-dinner speech internationally</li>
+          <li>6× parli debate winner provincially</li>
+          <li>3× impromptu winner provincially</li>
+          <li>+5 more national & international awards</li>
         </ul>
+        <p class="coach-uni">Cornell University</p>
       </div>
     </div>
   </div>
