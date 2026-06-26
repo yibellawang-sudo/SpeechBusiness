@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>BAAM Speech & Debate Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -15,7 +15,6 @@
   --violet-dim:#5B21B6;
   --violet-lt:#EDE9FE;
   --sage:#C5D5BC;
-  --sage-dk:#A8BF9E;
   --mid:#6B6B6B;
   --white:#FFFFFF;
 }
@@ -38,24 +37,16 @@ nav{
   border-bottom:1px solid rgba(14,14,14,0.07);
   transition:border-color .3s;
 }
-.nav-logo{
-  display:flex;align-items:center;
-  text-decoration:none;
-}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
 .nav-logo img{
-  height:var(--logo-h, 36px);
-  width:auto;
-  display:block;
+  height:var(--logo-h,36px);width:auto;display:block;
   mix-blend-mode:multiply;
 }
-.nav-logo b{color:var(--violet)}
 .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
 .nav-links a{
   font-family:'DM Sans',sans-serif;
   font-size:0.8rem;font-weight:400;color:var(--mid);
-  text-decoration:none;
-  position:relative;
-  padding-bottom:2px;
+  text-decoration:none;position:relative;padding-bottom:2px;
 }
 .nav-links a::after{
   content:'';position:absolute;bottom:0;left:0;right:0;
@@ -68,8 +59,7 @@ nav{
 .nav-pill{
   background:var(--ink) !important;color:var(--paper) !important;
   padding:8px 22px;border-radius:100px;
-  font-weight:500 !important;
-  transition:background .2s !important;
+  font-weight:500 !important;transition:background .2s !important;
 }
 .nav-pill::after{display:none !important}
 .nav-pill:hover{background:var(--violet) !important}
@@ -83,106 +73,69 @@ nav{
   padding:62px 48px 72px;
   position:relative;overflow:hidden;
 }
-
-/* ── Glow behind the text grid ── */
 .hero-orb{
-  position:absolute;
-  border-radius:50%;
-  pointer-events:none;
-  filter:blur(90px);
-  will-change:transform;
+  position:absolute;border-radius:50%;
+  pointer-events:none;filter:blur(90px);will-change:transform;
 }
 .hero-orb-1{
-  width:65vw;height:65vw;
-  top:-20vw;left:-15vw;
+  width:65vw;height:65vw;top:-20vw;left:-15vw;
   background:radial-gradient(circle,rgba(167,139,250,0.18) 0%,transparent 65%);
   animation:orbDrift1 14s ease-in-out infinite alternate;
 }
 .hero-orb-2{
-  width:55vw;height:55vw;
-  bottom:-12vw;right:-10vw;
+  width:55vw;height:55vw;bottom:-12vw;right:-10vw;
   background:radial-gradient(circle,rgba(139,92,246,0.14) 0%,transparent 65%);
   animation:orbDrift2 18s ease-in-out infinite alternate;
 }
 .hero-orb-3{
-  width:35vw;height:35vw;
-  top:35%;left:48%;
+  width:35vw;height:35vw;top:35%;left:48%;
   background:radial-gradient(circle,rgba(196,181,253,0.1) 0%,transparent 65%);
   animation:orbDrift3 10s ease-in-out infinite alternate;
 }
-@keyframes orbDrift1{
-  from{transform:translate(0,0)}to{transform:translate(5vw,4vw)}
-}
-@keyframes orbDrift2{
-  from{transform:translate(0,0)}to{transform:translate(-4vw,-5vw)}
-}
-@keyframes orbDrift3{
-  from{transform:translate(-50%,0)}to{transform:translate(-50%,-3vw)}
-}
+@keyframes orbDrift1{from{transform:translate(0,0)}to{transform:translate(5vw,4vw)}}
+@keyframes orbDrift2{from{transform:translate(0,0)}to{transform:translate(-4vw,-5vw)}}
+@keyframes orbDrift3{from{transform:translate(-50%,0)}to{transform:translate(-50%,-3vw)}}
 
-/* ── Typographic wallpaper ── */
 .hero-bg-scene{
   position:absolute;inset:0;
-  pointer-events:none;user-select:none;
-  overflow:hidden;
+  pointer-events:none;user-select:none;overflow:hidden;
 }
 .hero-bg-grid{
-  position:absolute;
-  width:100%;height:100%;
-  top:0;left:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-around;
+  position:absolute;width:100%;height:100%;top:0;left:0;
+  display:flex;flex-direction:column;justify-content:space-around;
 }
-.hero-bg-row{
-  display:flex;
-  white-space:nowrap;
-  line-height:1;
-  align-items:center;
-}
-.hero-bg-row:nth-child(even){
-  margin-left:-8em;
-}
+.hero-bg-row{display:flex;white-space:nowrap;line-height:1;align-items:center;}
+.hero-bg-row:nth-child(even){margin-left:-8em;}
 .hero-bg-row span{
   font-family:'Syne',sans-serif;font-weight:800;
   font-size:clamp(5rem,8.5vw,8.5rem);
-  letter-spacing:-0.01em;
-  padding:0 0.3em;
-  color:transparent;
-  white-space:nowrap;
+  letter-spacing:-0.01em;padding:0 0.3em;
+  color:transparent;white-space:nowrap;
   -webkit-text-stroke:1px rgba(196,181,253,0.13);
   transition:opacity .4s ease;
 }
-
-/* ── Noise grain ── */
 .hero::after{
   content:'';position:absolute;inset:0;z-index:1;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events:none;
 }
-
-/* ── Vignette ── */
 .hero-vignette{
   position:absolute;inset:0;z-index:2;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, rgba(8,3,18,0.65) 100%),
-    linear-gradient(to top, rgba(8,3,18,0.9) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 60% at 50% 50%,transparent 30%,rgba(8,3,18,0.65) 100%),
+    linear-gradient(to top,rgba(8,3,18,0.9) 0%,transparent 40%);
   pointer-events:none;
 }
-
 .hero-corner-label{
   position:absolute;top:90px;right:48px;
   text-align:right;z-index:3;
   font-family:'DM Sans',sans-serif;
   font-size:0.7rem;font-weight:400;font-style:italic;
-  letter-spacing:0.06em;
-  color:rgba(247,245,240,0.2);
-  line-height:2.2;
+  letter-spacing:0.06em;color:rgba(247,245,240,0.2);line-height:2.2;
 }
 .hero-badge{
   position:absolute;top:110px;left:48px;z-index:3;
-  width:90px;height:90px;
-  border-radius:50%;
+  width:90px;height:90px;border-radius:50%;
   border:1px solid rgba(167,139,250,0.3);
   display:flex;align-items:center;justify-content:center;
   animation:spin 18s linear infinite;
@@ -201,76 +154,54 @@ nav{
   font-family:'DM Sans',sans-serif;
   font-size:0.7rem;font-weight:500;
   letter-spacing:0.14em;text-transform:uppercase;
-  color:rgba(124,58,237,0.9);
-  margin-bottom:24px;
+  color:rgba(124,58,237,0.9);margin-bottom:24px;
 }
-.hero-label::before{
-  content:'';display:block;width:20px;height:1px;
-  background:var(--violet);
-}
+.hero-label::before{content:'';display:block;width:20px;height:1px;background:var(--violet);}
 .hero h1{
   font-family:'Syne',sans-serif;font-weight:800;
   font-size:clamp(3.8rem,10vw,9rem);
-  color:var(--paper);
-  line-height:0.92;
-  letter-spacing:-0.035em;
-  margin-bottom:48px;
+  color:var(--paper);line-height:0.92;
+  letter-spacing:-0.035em;margin-bottom:48px;
   text-shadow:0 0 80px rgba(124,58,237,0.15);
 }
 .hero h1 .cycle-word{
-  display:inline-block;
-  color:var(--violet);
-  transition:opacity .3s ease, transform .3s ease;
+  display:inline-block;color:var(--violet);
+  transition:opacity .3s ease,transform .3s ease;
   will-change:transform,opacity;
   text-shadow:0 0 40px rgba(124,58,237,0.45);
 }
-.hero-foot{
-  display:flex;align-items:flex-end;
-  justify-content:space-between;gap:40px;flex-wrap:wrap;
-}
+.hero-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;}
 .hero-sub{
   font-family:'Fraunces',serif;
   font-size:1.25rem;font-weight:300;font-style:italic;
-  color:rgba(247,245,240,0.55);
-  max-width:420px;line-height:1.75;
+  color:rgba(247,245,240,0.55);max-width:460px;line-height:1.75;
 }
 .hero-sub em{font-style:normal;color:rgba(247,245,240,0.85)}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .btn-v{
-  display:inline-block;
-  background:var(--violet);color:var(--white);
-  text-decoration:none;
-  font-family:'DM Sans',sans-serif;
-  font-weight:500;font-size:0.85rem;
-  padding:12px 26px;border-radius:100px;
-  position:relative;overflow:hidden;
-  transition:background .25s;
+  display:inline-block;background:var(--violet);color:var(--white);
+  text-decoration:none;font-family:'DM Sans',sans-serif;
+  font-weight:500;font-size:0.85rem;padding:12px 26px;border-radius:100px;
+  position:relative;overflow:hidden;transition:background .25s;
 }
 .btn-v::before{
-  content:'';position:absolute;inset:0;
-  background:rgba(255,255,255,0.15);
-  transform:translateX(-100%);
-  transition:transform .3s ease;
+  content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);
+  transform:translateX(-100%);transition:transform .3s ease;
 }
 .btn-v:hover::before{transform:translateX(0)}
 .btn-v:hover{background:var(--violet-dim)}
 .btn-outline{
-  display:inline-block;
-  border:1px solid rgba(247,245,240,0.2);
-  color:rgba(247,245,240,0.65);
-  text-decoration:none;
-  font-family:'DM Sans',sans-serif;
-  font-weight:400;font-size:0.85rem;
-  padding:12px 26px;border-radius:100px;
-  transition:border-color .25s,color .25s;
+  display:inline-block;border:1px solid rgba(247,245,240,0.2);
+  color:rgba(247,245,240,0.65);text-decoration:none;
+  font-family:'DM Sans',sans-serif;font-weight:400;font-size:0.85rem;
+  padding:12px 26px;border-radius:100px;transition:border-color .25s,color .25s;
 }
 .btn-outline:hover{border-color:rgba(124,58,237,0.6);color:var(--paper)}
 .hero-scroll-hint{
   font-family:'DM Sans',sans-serif;
   font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;
   color:rgba(247,245,240,0.18);
-  display:flex;align-items:center;gap:10px;
-  margin-top:56px;
+  display:flex;align-items:center;gap:10px;margin-top:56px;
 }
 .scroll-line{
   width:0px;height:1px;background:rgba(247,245,240,0.18);
@@ -280,45 +211,25 @@ nav{
 
 /* ─────────────── MARQUEE TAPE ─────────────── */
 .tape{
-  background:var(--violet);
-  overflow:hidden;white-space:nowrap;
-  padding:11px 0;
-  position:relative;z-index:2;
+  background:var(--violet);overflow:hidden;white-space:nowrap;
+  padding:11px 0;position:relative;z-index:2;
 }
-.tape-inner{
-  display:inline-flex;gap:0;
-  animation:marquee 22s linear infinite;
-}
+.tape-inner{display:inline-flex;gap:0;animation:marquee 26s linear infinite;}
 .tape-inner span{
   font-family:'Syne',sans-serif;font-weight:700;
   font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;
-  color:rgba(255,255,255,0.9);
-  padding:0 28px;
+  color:rgba(255,255,255,0.9);padding:0 28px;
 }
-.tape-inner span.dot{
-  color:rgba(255,255,255,0.35);padding:0;letter-spacing:0;
-  font-size:1rem;
-}
-@keyframes marquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
+.tape-inner span.dot{color:rgba(255,255,255,0.35);padding:0;letter-spacing:0;font-size:1rem;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ─────────────── CUT SHAPES ─────────────── */
-.cut-down{
-  width:100%;height:72px;overflow:hidden;position:relative;z-index:1;
-}
+.cut-down{width:100%;height:72px;overflow:hidden;position:relative;z-index:1;}
 .cut-down svg{display:block;width:100%;height:100%}
-.cut-up{
-  width:100%;height:72px;overflow:hidden;position:relative;z-index:1;
-}
+.cut-up{width:100%;height:72px;overflow:hidden;position:relative;z-index:1;}
 .cut-up svg{display:block;width:100%;height:100%}
 
-/* ─────────────── PROGRAMS ─────────────── */
-.programs{
-  background:var(--paper);
-  padding:72px 48px 56px;
-}
+/* ─────────────── SHARED SECTION STYLES ─────────────── */
 .section-kicker{
   font-family:'DM Sans',sans-serif;
   font-size:0.68rem;font-weight:500;
@@ -326,628 +237,416 @@ nav{
   color:var(--violet);margin-bottom:14px;
   display:flex;align-items:center;gap:10px;
 }
-.section-kicker::after{
-  content:'';flex:1;max-width:40px;height:1px;
-  background:var(--violet);opacity:0.4;
-}
+.section-kicker::after{content:'';flex:1;max-width:40px;height:1px;background:var(--violet);opacity:0.4;}
 .section-h{
   font-family:'Syne',sans-serif;font-weight:800;
   font-size:clamp(2.2rem,5vw,3.8rem);
-  letter-spacing:-0.035em;line-height:1.02;
-  margin-bottom:8px;
+  letter-spacing:-0.035em;line-height:1.02;margin-bottom:8px;
 }
 .section-sub{
   font-family:'Fraunces',serif;
   font-size:1.2rem;font-weight:300;font-style:italic;
-  color:var(--mid);line-height:1.7;
-  max-width:480px;margin-bottom:52px;
+  color:var(--mid);line-height:1.7;max-width:480px;margin-bottom:52px;
 }
 
+/* ─────────────── PROGRAMS ─────────────── */
+.programs{background:var(--paper);padding:72px 48px 56px;}
 .programs-stack{border-top:1px solid rgba(14,14,14,0.09)}
 .program-row{
-  display:grid;
-  grid-template-columns:56px 1fr 48px;
-  gap:28px;align-items:start;
-  padding:32px 0;
+  display:grid;grid-template-columns:56px 1fr 48px;
+  gap:28px;align-items:start;padding:32px 0;
   border-bottom:1px solid rgba(14,14,14,0.09);
-  position:relative;cursor:default;
-  transition:padding-left .25s ease;
+  position:relative;cursor:default;transition:padding-left .25s ease;
 }
 .program-row::before{
-  content:'';
-  position:absolute;bottom:0;left:0;right:0;height:1px;
-  background:var(--violet);
-  transform:scaleX(0);transform-origin:left;
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:var(--violet);transform:scaleX(0);transform-origin:left;
   transition:transform .35s ease;
 }
 .program-row:hover::before{transform:scaleX(1)}
 .program-row:hover{padding-left:8px}
 .prog-num{
-  font-family:'Fraunces',serif;font-weight:400;
+  font-family:'Fraunces',serif;font-weight:400;font-style:italic;
   font-size:2rem;color:rgba(14,14,14,0.12);
-  line-height:1;padding-top:6px;
-  transition:color .25s;
-  font-style:italic;
+  line-height:1;padding-top:6px;transition:color .25s;
 }
 .program-row:hover .prog-num{color:var(--violet);opacity:0.5}
 .prog-content h3{
   font-family:'Syne',sans-serif;font-weight:700;
-  font-size:1.25rem;margin-bottom:7px;letter-spacing:-0.01em;
-  transition:color .2s;
+  font-size:1.25rem;margin-bottom:4px;letter-spacing:-0.01em;transition:color .2s;
 }
 .program-row:hover .prog-content h3{color:var(--violet)}
+.prog-content .prog-subtitle{
+  font-family:'Fraunces',serif;font-weight:300;font-style:italic;
+  font-size:0.85rem;color:var(--violet);opacity:0.7;margin-bottom:10px;
+}
 .prog-content p{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.88rem;font-weight:300;
-  color:var(--mid);line-height:1.75;
-  max-width:500px;margin-bottom:16px;
+  font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:300;
+  color:var(--mid);line-height:1.75;max-width:500px;margin-bottom:16px;
 }
 .prog-tags{display:flex;flex-wrap:wrap;gap:6px}
 .ptag{
   font-family:'DM Sans',sans-serif;
-  font-size:0.67rem;font-weight:500;letter-spacing:0.07em;
-  text-transform:uppercase;color:var(--violet);
-  background:var(--violet-lt);
+  font-size:0.67rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;
+  color:var(--violet);background:var(--violet-lt);
   padding:3px 11px;border-radius:100px;
-  border:1px solid transparent;
-  transition:border-color .2s,background .2s;
+  border:1px solid transparent;transition:border-color .2s;
+}
+.ptag.price-tag{
+  background:var(--ink);color:var(--paper);
+  font-size:0.7rem;font-weight:600;
 }
 .program-row:hover .ptag{border-color:rgba(124,58,237,0.2)}
 .prog-arrow{
   font-size:1.2rem;color:rgba(14,14,14,0.12);
   transition:color .2s,transform .3s cubic-bezier(.34,1.56,.64,1);
-  padding-top:6px;text-align:right;
-  user-select:none;
+  padding-top:6px;text-align:right;user-select:none;
 }
-.program-row:hover .prog-arrow{
-  color:var(--violet);
-  transform:translate(3px,-3px) rotate(-5deg);
-}
+.program-row:hover .prog-arrow{color:var(--violet);transform:translate(3px,-3px) rotate(-5deg);}
 
 /* ─────────────── COACHES ─────────────── */
-.coaches-section{
-  background:var(--ink);
-  padding:72px 48px 80px;
-}
+.coaches-section{background:var(--ink);padding:72px 48px 80px;}
 .coaches-section .section-h{color:var(--paper)}
 .coaches-section .section-sub{color:rgba(247,245,240,0.4);font-size:1.2rem}
 .coaches-section .section-kicker{color:var(--violet)}
 .coaches-section .section-kicker::after{background:var(--violet);opacity:0.3}
-
-.coaches-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-  align-items:start;
-}
+.coaches-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start;}
 .coach-card{
-  position:relative;
-  border-radius:16px;
-  overflow:hidden;
-  cursor:default;
-  aspect-ratio:3/4;
-  background:#0a0512;
+  position:relative;border-radius:16px;overflow:hidden;
+  cursor:default;aspect-ratio:3/4;background:#0a0512;
 }
-/* alternating offset for editorial rhythm */
 .coach-card:nth-child(2){margin-top:40px}
 .coach-card:nth-child(4){margin-top:40px}
-
-/* Photo layer */
-.coach-photo{
-  position:absolute;inset:0;
-  overflow:hidden;
-}
+.coach-photo{position:absolute;inset:0;overflow:hidden;}
 .coach-photo img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center top;
-  display:block;
+  width:100%;height:100%;object-fit:cover;object-position:center top;display:block;
   transition:transform .7s cubic-bezier(.25,.46,.45,.94);
   filter:brightness(0.85) saturate(0.95);
 }
 .coach-card:hover .coach-photo img{transform:scale(1.05)}
-
-/* University badge */
 .coach-uni{
-  position:absolute;
-  top:14px;right:14px;
-  z-index:4;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.6rem;font-weight:700;
-  letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--white);
-  background:var(--violet);
-  padding:6px 13px;border-radius:100px;
+  position:absolute;top:14px;right:14px;z-index:4;
+  font-family:'DM Sans',sans-serif;font-size:0.6rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--white);
+  background:var(--violet);padding:6px 13px;border-radius:100px;
   box-shadow:0 3px 14px rgba(124,58,237,0.55);
   transform:rotate(2deg);
-  transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .3s;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;
   white-space:nowrap;
 }
-.coach-card:hover .coach-uni{
-  transform:rotate(0deg) scale(1.06);
-  box-shadow:0 6px 24px rgba(124,58,237,0.65);
-}
-
-/* Gradient overlay */
+.coach-card:hover .coach-uni{transform:rotate(0deg) scale(1.06);box-shadow:0 6px 24px rgba(124,58,237,0.65);}
 .coach-overlay{
-  position:absolute;
-  bottom:0;left:0;right:0;
-  z-index:3;
-  background:linear-gradient(to top,
-    rgba(8,3,18,0.98) 0%,
-    rgba(8,3,18,0.93) 45%,
-    rgba(8,3,18,0.55) 72%,
-    transparent 100%);
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  background:linear-gradient(to top,rgba(8,3,18,0.98) 0%,rgba(8,3,18,0.93) 45%,rgba(8,3,18,0.55) 72%,transparent 100%);
   padding:32px 20px 22px;
-  transform:translateY(44%);
-  transition:transform .5s cubic-bezier(.25,.46,.45,.94);
+  transform:translateY(44%);transition:transform .5s cubic-bezier(.25,.46,.45,.94);
 }
 .coach-card:hover .coach-overlay{transform:translateY(0)}
-
-/* Name */
 .coach-name{
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:1.15rem;color:var(--white);
-  letter-spacing:-0.02em;line-height:1.1;
-  margin-bottom:3px;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;
+  color:var(--white);letter-spacing:-0.02em;line-height:1.1;margin-bottom:3px;
 }
-/* Role */
 .coach-role{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.62rem;color:var(--violet);
-  font-weight:600;letter-spacing:0.14em;
-  text-transform:uppercase;
-  margin-bottom:16px;
+  font-family:'DM Sans',sans-serif;font-size:0.62rem;color:var(--violet);
+  font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;
 }
-
-/* Thin rule between name block and awards */
-.coach-divider{
-  height:1px;
-  background:rgba(247,245,240,0.1);
-  margin-bottom:14px;
-}
-
-/* Awards */
+.coach-divider{height:1px;background:rgba(247,245,240,0.1);margin-bottom:14px;}
 .coach-awards-label{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.58rem;font-weight:700;
-  letter-spacing:0.2em;text-transform:uppercase;
-  color:rgba(247,245,240,0.28);
-  margin-bottom:9px;
+  font-family:'DM Sans',sans-serif;font-size:0.58rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;color:rgba(247,245,240,0.28);margin-bottom:9px;
 }
-.coach-awards-list{
-  list-style:none;margin:0;padding:0;
-}
+.coach-awards-list{list-style:none;margin:0;padding:0;}
 .coach-awards-list li{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.8rem;font-weight:400;
-  color:rgba(247,245,240,0.8);
-  line-height:1.45;
-  padding:5px 0 5px 16px;
-  border-bottom:1px solid rgba(247,245,240,0.06);
-  position:relative;
+  font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:400;
+  color:rgba(247,245,240,0.8);line-height:1.45;
+  padding:5px 0 5px 16px;border-bottom:1px solid rgba(247,245,240,0.06);position:relative;
 }
 .coach-awards-list li:last-child{border-bottom:none}
 .coach-awards-list li::before{
-  content:'';
-  position:absolute;left:0;top:12px;
+  content:'';position:absolute;left:0;top:12px;
   width:6px;height:6px;border-radius:50%;
-  background:var(--violet);
-  box-shadow:0 0 8px rgba(124,58,237,0.8);
+  background:var(--violet);box-shadow:0 0 8px rgba(124,58,237,0.8);
 }
 
-/* ─────────────── PRICING ─────────────── */
-.pricing-section{
-  background:var(--sage);
-  padding:72px 48px 80px;
+/* ─────────────── TESTIMONIALS ─────────────── */
+.testimonials-section{background:var(--paper);padding:88px 48px;}
+.testimonials-section .section-kicker{color:var(--violet)}
+.testimonials-section .section-kicker::after{background:var(--violet);opacity:0.4}
+.testimonials-section .section-h{margin-bottom:8px}
+.testimonials-section .section-sub{margin-bottom:48px}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start;}
+.tcard{
+  border:1px solid rgba(14,14,14,0.08);border-radius:12px;padding:32px;
+  background:var(--white);position:relative;
+  transition:transform .3s cubic-bezier(.34,1.3,.64,1),box-shadow .3s,border-color .3s;
 }
+.tcard:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(14,14,14,0.08);border-color:rgba(124,58,237,0.2);}
+.tcard:nth-child(2){margin-top:28px}
+.tcard-quote{
+  font-family:'Fraunces',serif;font-size:2.8rem;font-weight:400;
+  color:var(--violet);opacity:0.4;margin-bottom:12px;
+  line-height:1;font-style:normal;display:block;letter-spacing:-0.02em;
+}
+.tcard-text{
+  font-family:'Fraunces',serif;font-size:1rem;font-weight:300;font-style:italic;
+  color:var(--ink);line-height:1.7;margin-bottom:24px;
+}
+.tcard-divider{height:1px;background:rgba(14,14,14,0.07);margin-bottom:18px;}
+.tcard-author{display:flex;align-items:center;gap:12px;}
+.tcard-avatar{
+  width:36px;height:36px;border-radius:50%;background:var(--violet-lt);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.tcard-avatar span{font-family:'Syne',sans-serif;font-weight:700;font-size:0.72rem;color:var(--violet);}
+.tcard-name{font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:2px;}
+.tcard-meta{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:300;color:var(--mid);}
+.tcard-stars{display:flex;gap:3px;margin-bottom:16px;}
+.tcard-stars span{color:var(--violet);font-size:0.7rem;opacity:0.7;}
+
+/* ─────────────── PRICING ─────────────── */
+.pricing-section{background:var(--sage);padding:72px 48px 80px;}
 .pricing-section .section-h{color:var(--ink)}
 .pricing-section .section-sub{
-  font-family:'Fraunces',serif;
-  font-size:1.2rem;font-weight:300;font-style:italic;
-  color:rgba(14,14,14,0.45);
-  margin-bottom:48px;
+  font-family:'Fraunces',serif;font-size:1.2rem;font-weight:300;font-style:italic;
+  color:rgba(14,14,14,0.45);margin-bottom:48px;
 }
 .pricing-section .section-kicker{color:rgba(14,14,14,0.4)}
 .pricing-section .section-kicker::after{background:var(--ink);opacity:0.2}
-
-.pricing-inner{
-  display:grid;grid-template-columns:1fr 1fr;gap:16px;
-  margin-bottom:16px;
+.pricing-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-bottom:16px;
 }
+.pricing-top{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:16px;margin-bottom:16px;
+}
+.pricing-bottom{margin-bottom:16px;}
 .price-card{
-  background:var(--paper);
-  border-radius:14px;padding:40px;
+  background:var(--paper);border-radius:14px;padding:40px;
   position:relative;overflow:hidden;
-  transition:transform .3s cubic-bezier(.34,1.3,.64,1), box-shadow .3s;
+  transition:transform .3s cubic-bezier(.34,1.3,.64,1),box-shadow .3s;
 }
-.price-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 20px 60px rgba(14,14,14,0.12);
-}
+.price-card:hover{transform:translateY(-5px);box-shadow:0 20px 60px rgba(14,14,14,0.12);}
 .price-card.dark{background:var(--ink)}
 .price-glow{
-  position:absolute;top:-80px;right:-80px;
-  width:220px;height:220px;border-radius:50%;
-  background:radial-gradient(circle,rgba(124,58,237,0.1),transparent 70%);
-  pointer-events:none;
+  position:absolute;top:-80px;right:-80px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,58,237,0.1),transparent 70%);pointer-events:none;
 }
+.price-course-name{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:1rem;color:var(--ink);letter-spacing:-0.02em;
+  margin-bottom:4px;
+}
+.price-card.dark .price-course-name{color:var(--paper)}
 .price-type{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.68rem;font-weight:500;
-  letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--violet);margin-bottom:20px;
+  font-family:'DM Sans',sans-serif;font-size:0.65rem;font-weight:500;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--violet);margin-bottom:20px;
 }
 .price-big{
   font-family:'Syne',sans-serif;font-weight:800;
-  font-size:4.2rem;color:var(--ink);
-  letter-spacing:-0.05em;line-height:1;
+  font-size:4.2rem;color:var(--ink);letter-spacing:-0.05em;line-height:1;
 }
 .price-card.dark .price-big{color:var(--paper)}
 .price-per{
   font-family:'Fraunces',serif;font-weight:300;font-style:italic;
-  font-size:0.88rem;color:var(--mid);
-  margin-bottom:30px;margin-top:5px;
+  font-size:0.88rem;color:var(--mid);margin-bottom:8px;margin-top:5px;
 }
 .price-card.dark .price-per{color:rgba(247,245,240,0.35)}
+.price-save{
+  display:inline-block;
+  font-family:'DM Sans',sans-serif;font-size:0.65rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--violet);background:var(--violet-lt);
+  padding:3px 10px;border-radius:100px;margin-bottom:22px;
+}
+.price-card.dark .price-save{background:rgba(124,58,237,0.2);color:rgba(196,181,253,0.9)}
 .price-items{list-style:none}
 .price-items li{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.85rem;font-weight:300;color:#4A5568;
-  padding:9px 0;
-  border-bottom:1px solid rgba(14,14,14,0.06);
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:300;color:#4A5568;
+  padding:9px 0;border-bottom:1px solid rgba(14,14,14,0.06);
   display:flex;align-items:flex-start;gap:10px;line-height:1.55;
 }
-.price-card.dark .price-items li{
-  color:rgba(247,245,240,0.5);
-  border-bottom-color:rgba(247,245,240,0.06);
+.price-card.dark .price-items li{color:rgba(247,245,240,0.5);border-bottom-color:rgba(247,245,240,0.06);}
+.price-items li::before{content:'→';color:var(--violet);font-size:0.75rem;flex-shrink:0;margin-top:3px;}
+.price-note{
+  font-family:'Fraunces',serif;font-size:0.9rem;font-weight:300;font-style:italic;
+  color:rgba(14,14,14,0.42);margin-bottom:16px;line-height:1.6;
 }
-.price-items li::before{
-  content:'→';color:var(--violet);
-  font-size:0.75rem;flex-shrink:0;margin-top:3px;
-}
+.price-note a{color:var(--ink);font-weight:400;text-decoration:underline;text-underline-offset:3px;}
 
-/* Promo — no emoji, typographic treatment */
 .promo-card{
-  background:var(--paper);
-  border-radius:14px;
-  padding:36px 44px;
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:32px;align-items:center;
+  background:var(--paper);border-radius:14px;padding:36px 44px;
+  display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;
   position:relative;overflow:hidden;
-  transition:transform .3s ease, box-shadow .3s;
+  transition:transform .3s ease,box-shadow .3s;
 }
-.promo-card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 16px 48px rgba(14,14,14,0.1);
-}
+.promo-card:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(14,14,14,0.1);}
 .promo-flag{
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:3rem;color:var(--violet);
-  letter-spacing:-0.05em;line-height:1;
-  opacity:0.18;
-  position:absolute;right:40px;bottom:-8px;
-  pointer-events:none;user-select:none;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:3rem;
+  color:var(--violet);letter-spacing:-0.05em;line-height:1;opacity:0.18;
+  position:absolute;right:40px;bottom:-8px;pointer-events:none;user-select:none;
 }
 .promo-tag{
-  display:inline-block;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.65rem;font-weight:700;
-  letter-spacing:0.2em;text-transform:uppercase;
+  display:inline-block;font-family:'DM Sans',sans-serif;
+  font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
   color:var(--white);background:var(--violet);
-  padding:5px 14px;border-radius:100px;
-  align-self:start;white-space:nowrap;
+  padding:5px 14px;border-radius:100px;align-self:start;white-space:nowrap;
 }
 .promo-body h4{
-  font-family:'Syne',sans-serif;font-weight:700;
-  font-size:1.2rem;color:var(--ink);
-  margin-bottom:7px;letter-spacing:-0.02em;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;
+  color:var(--ink);margin-bottom:7px;letter-spacing:-0.02em;
 }
-.promo-body p{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.86rem;font-weight:300;color:var(--mid);
-  line-height:1.7;
-}
+.promo-body p{font-family:'DM Sans',sans-serif;font-size:0.86rem;font-weight:300;color:var(--mid);line-height:1.7;}
 .promo-body strong{color:var(--ink);font-weight:500}
+
+/* ─────────────── FAQ ─────────────── */
+.faq-section{background:var(--paper);padding:88px 48px;}
+.faq-section .section-kicker{color:var(--violet)}
+.faq-section .section-kicker::after{background:var(--violet);opacity:0.4}
+.faq-section .section-h{margin-bottom:8px}
+.faq-section .section-sub{margin-bottom:52px}
+.faq-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:rgba(14,14,14,0.07);
+  border:1px solid rgba(14,14,14,0.07);border-radius:14px;overflow:hidden;
+}
+.faq-item{
+  background:var(--white);padding:36px 40px;cursor:pointer;
+  position:relative;transition:background .2s;
+}
+.faq-item:hover{background:#FDFCFB}
+.faq-item.open{background:var(--violet-lt)}
+.faq-q{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;}
+.faq-q-text{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;
+  color:var(--ink);letter-spacing:-0.01em;line-height:1.3;transition:color .2s;
+}
+.faq-item.open .faq-q-text{color:var(--violet)}
+.faq-icon{
+  width:22px;height:22px;flex-shrink:0;border-radius:50%;
+  border:1.5px solid rgba(14,14,14,0.15);
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s,background .2s,transform .3s ease;margin-top:2px;
+}
+.faq-item.open .faq-icon{background:var(--violet);border-color:var(--violet);transform:rotate(45deg);}
+.faq-icon svg{width:10px;height:10px;stroke:var(--mid);transition:stroke .2s;}
+.faq-item.open .faq-icon svg{stroke:var(--white)}
+.faq-a{
+  font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:300;
+  color:var(--mid);line-height:1.75;
+  max-height:0;overflow:hidden;
+  transition:max-height .4s ease,margin-top .3s ease,opacity .3s ease;
+  opacity:0;margin-top:0;
+}
+.faq-item.open .faq-a{max-height:200px;opacity:1;margin-top:14px;}
+.faq-a strong{color:var(--ink);font-weight:500}
 
 /* ─────────────── FREE CALL ─────────────── */
 .call-section{
-  background:var(--ink);
-  padding:88px 48px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:center;
+  background:var(--ink);padding:88px 48px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
 }
 .call-left .section-kicker{color:var(--violet)}
 .call-left .section-kicker::after{background:var(--violet);opacity:0.3}
 .call-headline{
-  font-family:'Fraunces',serif;
-  font-weight:300;font-style:italic;
-  font-size:clamp(2.4rem,5vw,4rem);
-  color:var(--paper);
-  line-height:1.1;
-  letter-spacing:-0.02em;
-  margin-bottom:20px;
+  font-family:'Fraunces',serif;font-weight:300;font-style:italic;
+  font-size:clamp(2.4rem,5vw,4rem);color:var(--paper);
+  line-height:1.1;letter-spacing:-0.02em;margin-bottom:20px;
 }
-.call-headline em{
-  font-style:normal;
-  color:var(--violet);
-}
+.call-headline em{font-style:normal;color:var(--violet);}
 .call-body{
-  font-family:'DM Sans',sans-serif;
-  font-size:1rem;font-weight:300;
-  color:rgba(247,245,240,0.45);
-  line-height:1.75;
-  max-width:400px;
-  margin-bottom:36px;
+  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:300;
+  color:rgba(247,245,240,0.45);line-height:1.75;max-width:400px;margin-bottom:36px;
 }
 .call-body strong{color:rgba(247,245,240,0.75);font-weight:400}
 .btn-call{
   display:inline-flex;align-items:center;gap:12px;
-  background:var(--paper);color:var(--ink);
-  text-decoration:none;
-  font-family:'DM Sans',sans-serif;
-  font-weight:500;font-size:0.9rem;
+  background:var(--paper);color:var(--ink);text-decoration:none;
+  font-family:'DM Sans',sans-serif;font-weight:500;font-size:0.9rem;
   padding:14px 28px;border-radius:100px;
-  transition:background .2s,color .2s,transform .2s;
-  border:1.5px solid transparent;
+  transition:background .2s,color .2s,transform .2s;border:1.5px solid transparent;
 }
-.btn-call:hover{
-  background:transparent;
-  color:var(--paper);
-  border-color:rgba(247,245,240,0.25);
-  transform:translateY(-2px);
-}
-.btn-call-icon{
-  width:20px;height:20px;flex-shrink:0;
-  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
-}
+.btn-call:hover{background:transparent;color:var(--paper);border-color:rgba(247,245,240,0.25);transform:translateY(-2px);}
+.btn-call-icon{width:20px;height:20px;flex-shrink:0;transition:transform .3s cubic-bezier(.34,1.56,.64,1);}
 .btn-call:hover .btn-call-icon{transform:rotate(15deg) scale(1.15)}
 .call-free-tag{
-  display:inline-block;
-  margin-top:16px;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.7rem;font-weight:500;
-  letter-spacing:0.14em;text-transform:uppercase;
-  color:rgba(247,245,240,0.25);
+  display:inline-block;margin-top:16px;
+  font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:500;
+  letter-spacing:0.14em;text-transform:uppercase;color:rgba(247,245,240,0.25);
 }
-/* Right side — visual */
-.call-right{
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-}
-.call-ring-wrap{
-  position:relative;
-  width:260px;height:260px;
-  display:flex;align-items:center;justify-content:center;
-}
-.call-ring{
-  position:absolute;border-radius:50%;
-  border:1px solid rgba(124,58,237,0.2);
-  animation:ringPulse 3s ease-out infinite;
-}
+.call-right{display:flex;align-items:center;justify-content:center;position:relative;}
+.call-ring-wrap{position:relative;width:260px;height:260px;display:flex;align-items:center;justify-content:center;}
+.call-ring{position:absolute;border-radius:50%;border:1px solid rgba(124,58,237,0.2);animation:ringPulse 3s ease-out infinite;}
 .call-ring:nth-child(1){width:100%;height:100%;animation-delay:0s}
 .call-ring:nth-child(2){width:75%;height:75%;animation-delay:.7s}
 .call-ring:nth-child(3){width:50%;height:50%;animation-delay:1.4s;border-color:rgba(124,58,237,0.35)}
-@keyframes ringPulse{
-  0%{transform:scale(0.9);opacity:0}
-  40%{opacity:1}
-  100%{transform:scale(1.08);opacity:0}
-}
+@keyframes ringPulse{0%{transform:scale(0.9);opacity:0}40%{opacity:1}100%{transform:scale(1.08);opacity:0}}
 .call-center{
-  position:relative;z-index:1;
-  width:96px;height:96px;border-radius:50%;
-  background:var(--violet);
-  display:flex;align-items:center;justify-content:center;
+  position:relative;z-index:1;width:96px;height:96px;border-radius:50%;
+  background:var(--violet);display:flex;align-items:center;justify-content:center;
   box-shadow:0 0 0 12px rgba(124,58,237,0.1);
   transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;
 }
-.call-center:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 0 20px rgba(124,58,237,0.12);
-}
+.call-center:hover{transform:scale(1.08);box-shadow:0 0 0 20px rgba(124,58,237,0.12);}
 .call-center svg{width:36px;height:36px}
 .call-quotes{
   position:absolute;bottom:-20px;right:-20px;
-  background:rgba(247,245,240,0.04);
-  border:1px solid rgba(247,245,240,0.07);
-  border-radius:10px;
-  padding:14px 18px;
-  max-width:180px;
+  background:rgba(247,245,240,0.04);border:1px solid rgba(247,245,240,0.07);
+  border-radius:10px;padding:14px 18px;max-width:180px;
 }
 .call-quote-text{
-  font-family:'Fraunces',serif;
-  font-size:0.82rem;font-weight:300;font-style:italic;
-  color:rgba(247,245,240,0.5);
-  line-height:1.55;
+  font-family:'Fraunces',serif;font-size:0.82rem;font-weight:300;font-style:italic;
+  color:rgba(247,245,240,0.5);line-height:1.55;
 }
 .call-quote-attr{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.65rem;font-weight:500;
-  letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--violet);
-  margin-top:8px;
+  font-family:'DM Sans',sans-serif;font-size:0.65rem;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-top:8px;
 }
 
 /* ─────────────── CTA ─────────────── */
 .cta-section{
-  background:var(--paper);
-  padding:100px 48px;
+  background:var(--paper);padding:100px 48px;
   display:flex;flex-direction:column;align-items:center;text-align:center;
 }
 .cta-section h2{
   font-family:'Syne',sans-serif;font-weight:800;
   font-size:clamp(2.8rem,8vw,6rem);
-  letter-spacing:-0.04em;line-height:0.95;
-  margin-bottom:4px;
+  letter-spacing:-0.04em;line-height:0.95;margin-bottom:4px;
 }
 .cta-section h2 span{color:var(--violet)}
-/* Italic sub-line in Fraunces */
 .cta-tagline{
   font-family:'Fraunces',serif;font-weight:300;font-style:italic;
-  font-size:1.25rem;color:var(--mid);
-  margin-bottom:40px;margin-top:18px;
+  font-size:1.25rem;color:var(--mid);margin-bottom:40px;margin-top:18px;
 }
-/* Magnetic button */
-.btn-mag-wrap{
-  position:relative;display:inline-block;
-}
+.btn-mag-wrap{position:relative;display:inline-block;}
 .btn-big{
-  display:inline-block;
-  background:var(--ink);color:var(--paper);
-  text-decoration:none;
-  font-family:'DM Sans',sans-serif;
-  font-weight:500;font-size:0.95rem;
-  padding:18px 52px;border-radius:100px;
-  transition:background .2s, transform .15s ease-out, box-shadow .2s;
-  position:relative;z-index:1;
-  will-change:transform;
+  display:inline-block;background:var(--ink);color:var(--paper);
+  text-decoration:none;font-family:'DM Sans',sans-serif;
+  font-weight:500;font-size:0.95rem;padding:18px 52px;border-radius:100px;
+  transition:background .2s,transform .15s ease-out,box-shadow .2s;
+  position:relative;z-index:1;will-change:transform;
 }
-.btn-big:hover{
-  background:var(--violet);
-  box-shadow:0 12px 40px rgba(124,58,237,0.3);
-}
-/* small note below button */
+.btn-big:hover{background:var(--violet);box-shadow:0 12px 40px rgba(124,58,237,0.3);}
 .cta-note{
-  margin-top:18px;
-  font-family:'DM Sans',sans-serif;
+  margin-top:18px;font-family:'DM Sans',sans-serif;
   font-size:0.72rem;font-weight:300;font-style:italic;
-  color:rgba(14,14,14,0.3);
-  letter-spacing:0.02em;
-}
-
-/* ─────────────── FREE CALL SECTION ─────────────── */
-.free-call{
-  background:var(--ink);
-  padding:88px 48px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:center;
-}
-.free-call-left{}
-.free-call-left .section-kicker{color:var(--violet)}
-.free-call-left .section-kicker::after{background:var(--violet);opacity:0.3}
-.free-call-title{
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:clamp(2rem,4.5vw,3.2rem);
-  color:var(--paper);
-  letter-spacing:-0.035em;line-height:1.05;
-  margin-bottom:0;
-}
-.free-call-title span{color:var(--violet)}
-.free-call-sub{
-  font-family:'Fraunces',serif;font-weight:300;font-style:italic;
-  font-size:1.2rem;color:rgba(247,245,240,0.45);
-  line-height:1.75;margin-top:16px;
-  max-width:400px;
-}
-.free-call-right{
-  display:flex;flex-direction:column;gap:28px;
-}
-.free-call-point{
-  display:flex;gap:20px;align-items:flex-start;
-  opacity:0;transform:translateX(20px);
-  transition:opacity .55s ease, transform .55s ease;
-}
-.free-call-point.visible{opacity:1;transform:translateX(0)}
-.free-call-point:nth-child(2){transition-delay:.1s}
-.free-call-point:nth-child(3){transition-delay:.2s}
-.fcp-num{
-  font-family:'Fraunces',serif;font-weight:400;font-style:italic;
-  font-size:1.6rem;color:var(--violet);opacity:0.5;
-  line-height:1;flex-shrink:0;padding-top:3px;
-  min-width:28px;
-}
-.fcp-text h4{
-  font-family:'DM Sans',sans-serif;font-weight:500;
-  font-size:0.95rem;color:var(--paper);
-  margin-bottom:4px;letter-spacing:-0.01em;
-}
-.fcp-text p{
-  font-family:'DM Sans',sans-serif;font-weight:300;
-  font-size:0.85rem;color:rgba(247,245,240,0.4);
-  line-height:1.7;
-}
-.free-call-cta{
-  margin-top:8px;
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--violet);color:var(--white);
-  text-decoration:none;
-  font-family:'DM Sans',sans-serif;font-weight:500;font-size:0.88rem;
-  padding:13px 26px;border-radius:100px;
-  align-self:flex-start;
-  position:relative;overflow:hidden;
-  transition:background .25s;
-}
-.free-call-cta::before{
-  content:'';position:absolute;inset:0;
-  background:rgba(255,255,255,0.12);
-  transform:translateX(-100%);
-  transition:transform .3s ease;
-}
-.free-call-cta:hover::before{transform:translateX(0)}
-.free-call-cta:hover{background:var(--violet-dim)}
-.free-call-cta-note{
-  font-family:'Fraunces',serif;font-weight:300;font-style:italic;
-  font-size:0.8rem;color:rgba(247,245,240,0.25);
-  margin-top:10px;
-}
-/* big ghost text */
-.free-call-ghost{
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:11vw;
-  color:transparent;
-  -webkit-text-stroke:1px rgba(124,58,237,0.08);
-  letter-spacing:-0.04em;line-height:1;
-  pointer-events:none;user-select:none;
-  white-space:nowrap;
-  position:absolute;bottom:-2vw;left:48px;
-}
-.free-call-wrap{
-  background:var(--ink);
-  position:relative;overflow:hidden;
-}
-
-@media(max-width:960px){
-  .free-call{grid-template-columns:1fr;gap:48px;padding:64px 24px}
-  .free-call-ghost{display:none}
+  color:rgba(14,14,14,0.3);letter-spacing:0.02em;
 }
 
 /* ─────────────── FOOTER ─────────────── */
 footer{
-  background:var(--ink);
-  padding:44px 48px;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:20px;flex-wrap:wrap;
+  background:var(--ink);padding:44px 48px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
 }
-.footer-logo{
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:1.05rem;color:var(--paper);letter-spacing:-0.02em;
-}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--paper);letter-spacing:-0.02em;}
 .footer-logo b{color:var(--violet)}
-footer p{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.75rem;font-weight:300;
-  color:rgba(247,245,240,0.2);
-}
+footer p{font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:300;color:rgba(247,245,240,0.2);}
 .footer-links{display:flex;gap:22px}
-.footer-links a{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.75rem;font-weight:400;
-  color:rgba(247,245,240,0.3);
-  text-decoration:none;
-  transition:color .2s;
-}
+.footer-links a{font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:400;color:rgba(247,245,240,0.3);text-decoration:none;transition:color .2s;}
 .footer-links a:hover{color:var(--violet)}
 
 /* ─────────────── SCROLL REVEAL ─────────────── */
-.reveal{
-  opacity:0;transform:translateY(24px);
-  transition:opacity .65s ease, transform .65s ease;
-}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:.08s}
 .reveal-delay-2{transition-delay:.16s}
@@ -958,21 +657,23 @@ footer p{
 @media(max-width:960px){
   nav{padding:0 24px}
   .nav-links{display:none}
-  .hero,.programs,.coaches-section,.pricing-section,.call-section,.cta-section{padding-left:24px;padding-right:24px}
+  .hero,.programs,.coaches-section,.pricing-section,.testimonials-section,.faq-section,.call-section,.cta-section{padding-left:24px;padding-right:24px}
   .hero-corner-label,.hero-badge{display:none}
   .coaches-grid{grid-template-columns:repeat(2,1fr)}
   .coach-card:nth-child(2){margin-top:0}
   .coach-card:nth-child(4){margin-top:0}
   .coach-overlay{transform:translateY(0)}
-  .pricing-inner{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .pricing-top{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .tcard:nth-child(2){margin-top:0}
+  .faq-grid{grid-template-columns:1fr}
   .promo-card{grid-template-columns:1fr;gap:16px}
   .call-section{grid-template-columns:1fr;gap:48px}
   .call-right{display:none}
   footer{padding:36px 24px;flex-direction:column;align-items:flex-start}
 }
-@media(max-width:520px){
-  .coaches-grid{grid-template-columns:1fr}
-}
+@media(max-width:520px){.coaches-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){
   *{animation:none !important;transition-duration:.01ms !important}
   .reveal{opacity:1;transform:none}
@@ -990,54 +691,39 @@ footer p{
     <li><a href="#programs">Programs</a></li>
     <li><a href="#coaches">Coaches</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#contact" class="nav-pill">Book a session</a></li>
+    <li><a href="https://forms.gle/D2pHrTKcc6zE1zvc7" target="_blank" class="nav-pill">Book a session</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-
-  <!-- Background layers -->
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
   <div class="hero-orb hero-orb-3"></div>
-
-  <!-- Tiling word grid -->
   <div class="hero-bg-scene" aria-hidden="true">
-    <div class="hero-bg-grid" id="bgGrid">
-      <!-- rows injected by JS -->
-    </div>
+    <div class="hero-bg-grid" id="bgGrid"></div>
   </div>
-
   <div class="hero-vignette" aria-hidden="true"></div>
-
-  <!-- Spinning ring badge -->
   <div class="hero-badge" aria-hidden="true">
     <svg viewBox="0 0 90 90">
-      <defs>
-        <path id="circle" d="M 45,45 m -32,0 a 32,32 0 1,1 64,0 a 32,32 0 1,1 -64,0"/>
-      </defs>
+      <defs><path id="circle" d="M 45,45 m -32,0 a 32,32 0 1,1 64,0 a 32,32 0 1,1 -64,0"/></defs>
       <text font-family="'DM Sans',sans-serif" font-size="9.5" fill="rgba(124,58,237,0.55)" letter-spacing="3" font-weight="500">
         <textPath href="#circle">SPEECH · DEBATE · PRESENCE · IMPACT · </textPath>
       </text>
     </svg>
     <div class="hero-badge-dot"></div>
   </div>
-
   <div class="hero-corner-label" aria-hidden="true">
-    speech coaching<br>
-    debate training<br>
-    public speaking<br>
-    exec consulting
+    speech coaching<br>debate training<br>public speaking<br>exec consulting
   </div>
-
   <div class="hero-bottom">
-    <p class="hero-label">Est. 2025</p>
+    <p class="hero-label">Est. 2026</p>
     <h1>Learn to<br><span class="cycle-word" id="cycleWord">debate.</span></h1>
     <div class="hero-foot">
       <div>
         <p class="hero-sub">
-          <em>The future belongs to those who can communicate it.</em>
+          <em>Debate Competition Prep · Public Speaking Coaching · Confidence Building</em><br>
+          The future belongs to those who can communicate it.
         </p>
         <div class="hero-actions">
           <a href="#programs" class="btn-v">See programs</a>
@@ -1045,52 +731,49 @@ footer p{
         </div>
       </div>
     </div>
-    <div class="hero-scroll-hint">
-      <div class="scroll-line"></div>
-      scroll
-    </div>
+    <div class="hero-scroll-hint"><div class="scroll-line"></div>scroll</div>
   </div>
 </section>
 
 <!-- MARQUEE TAPE -->
 <div class="tape" aria-hidden="true">
-  <div class="tape-inner" id="tapeInner">
-    <span>Targeted comp prep</span><span class="dot">·</span>
+  <div class="tape-inner">
+    <span>Competition Prep</span><span class="dot">·</span>
+    <span>Targeted Series</span><span class="dot">·</span>
+    <span>Fundamentals of Communication</span><span class="dot">·</span>
     <span>British Parliamentary</span><span class="dot">·</span>
     <span>American Parliamentary</span><span class="dot">·</span>
     <span>Canadian Parliamentary</span><span class="dot">·</span>
     <span>Impromptu</span><span class="dot">·</span>
-    <span>Interview prep</span><span class="dot">·</span>
-    <span>Executive consulting</span><span class="dot">·</span>
-    <span>Public speaking</span><span class="dot">·</span>
-    <span>Targeted comp prep</span><span class="dot">·</span>
+    <span>Interview Prep</span><span class="dot">·</span>
+    <span>Competition Prep</span><span class="dot">·</span>
+    <span>Targeted Series</span><span class="dot">·</span>
+    <span>Fundamentals of Communication</span><span class="dot">·</span>
     <span>British Parliamentary</span><span class="dot">·</span>
     <span>American Parliamentary</span><span class="dot">·</span>
     <span>Canadian Parliamentary</span><span class="dot">·</span>
     <span>Impromptu</span><span class="dot">·</span>
-    <span>Interview prep</span><span class="dot">·</span>
-    <span>Executive consulting</span><span class="dot">·</span>
-    <span>Public speaking</span><span class="dot">·</span>
+    <span>Interview Prep</span><span class="dot">·</span>
   </div>
 </div>
 
-<!-- CUT DOWN INTO PAPER -->
 <div class="cut-down" style="background:var(--violet)">
   <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><polygon points="0,72 1440,0 1440,72" fill="#F7F5F0"/></svg>
 </div>
 
 <!-- PROGRAMS -->
 <section class="programs" id="programs">
-  <p class="section-kicker">What we do</p>
+  <p class="section-kicker">What we offer</p>
   <h2 class="section-h reveal">Three ways we make<br>you unstoppable</h2>
-  <p class="section-sub reveal reveal-delay-1">Because one size fits nobody, so pick the path that fits your goal, your schedule & your ambition.</p>
+  <p class="section-sub reveal reveal-delay-1">Pick the path that fits your goal, your schedule, and your ambition.</p>
 
   <div class="programs-stack">
+
     <div class="program-row reveal reveal-delay-1">
       <div class="prog-num">1</div>
       <div class="prog-content">
         <h3>Competition Prep</h3>
-        <p>Whatever competition you're preparing for, we've got you. We help with piece selection, editing outside of meeting times, mock competitions, and tailor every drill and strategy we found useful in our own competitive journeys to your specific event and goals.</p>
+        <p>Whatever competition you're preparing for, we've got you. We help with piece selection, editing outside of meeting times, mock competitions, and every drill and strategy we found useful in our own competitive journeys — all tailored to your specific event and goals.</p>
         <div class="prog-tags">
           <span class="ptag">Any competition</span>
           <span class="ptag">Piece selection</span>
@@ -1105,13 +788,15 @@ footer p{
     <div class="program-row reveal reveal-delay-2">
       <div class="prog-num">2</div>
       <div class="prog-content">
-        <h3>Debate & Public Speaking</h3>
-        <p>Structured courses across every major format. Learn what makes an argument actually land and how to win the room.</p>
+        <h3>Targeted Series</h3>
+        <p class="prog-subtitle">Debate & Public Speaking Course</p>
+        <p>Our knowledge-first debate course. Each session runs a 40/20 split — 40 minutes of structured instruction across every major format, with 20 minutes of guided interaction and practice built in. Purchased by the hour, or save with the full multi-week course.</p>
         <div class="prog-tags">
           <span class="ptag">British Parliamentary</span>
           <span class="ptag">American Parliamentary</span>
           <span class="ptag">Canadian Parliamentary</span>
           <span class="ptag">Impromptu</span>
+          <span class="ptag price-tag">$25/hr · $20/hr by course</span>
         </div>
       </div>
       <div class="prog-arrow">↗</div>
@@ -1120,21 +805,23 @@ footer p{
     <div class="program-row reveal reveal-delay-3">
       <div class="prog-num">3</div>
       <div class="prog-content">
-        <h3>General Speech & Consulting</h3>
-        <p>A foundation course for anyone who wants to communicate better & a consulting line for interviews, presentations, and the moments that matter.</p>
+        <h3>Fundamentals of Communication</h3>
+        <p class="prog-subtitle">General Speaking Course</p>
+        <p>Our activity-first speaking course. Each session runs a 20/40 split — 20 minutes of core concepts, then 40 minutes of hands-on exercises, drills, and live practice. You learn by doing, and walk away with real confidence. A multi-week commitment billed hourly.</p>
         <div class="prog-tags">
-          <span class="ptag">Foundation course</span>
+          <span class="ptag">Foundation speaking</span>
           <span class="ptag">Interview prep</span>
           <span class="ptag">Presentations</span>
-          <span class="ptag">Executive impact</span>
+          <span class="ptag">Confidence building</span>
+          <span class="ptag price-tag">$15/hr by course</span>
         </div>
       </div>
       <div class="prog-arrow">↗</div>
     </div>
+
   </div>
 </section>
 
-<!-- CUT INTO DARK -->
 <div class="cut-up" style="background:var(--paper)">
   <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><polygon points="0,0 1440,72 0,72" fill="#0E0E0E"/></svg>
 </div>
@@ -1143,14 +830,11 @@ footer p{
 <section class="coaches-section" id="coaches">
   <p class="section-kicker">The team</p>
   <h2 class="section-h reveal">Coaches who've<br>been in your shoes</h2>
-  <p class="section-sub reveal reveal-delay-1">All of us competed, lost some rounds, won others, and figured out things we can't wait to pass on</p>
+  <p class="section-sub reveal reveal-delay-1">All of us competed, lost some rounds, won others, and figured out things we can't wait to pass on.</p>
 
   <div class="coaches-grid">
-
     <div class="coach-card reveal reveal-delay-1">
-      <div class="coach-photo">
-        <img src="bella.png" alt="Bella Wang"/>
-      </div>
+      <div class="coach-photo"><img src="bella.png" alt="Bella Wang"/></div>
       <p class="coach-uni">Caltech</p>
       <div class="coach-overlay">
         <p class="coach-name">Bella Wang</p>
@@ -1167,9 +851,7 @@ footer p{
     </div>
 
     <div class="coach-card reveal reveal-delay-2">
-      <div class="coach-photo">
-        <img src="angela.png" alt="Angela Long"/>
-      </div>
+      <div class="coach-photo"><img src="angela.png" alt="Angela Long"/></div>
       <p class="coach-uni">Emory University</p>
       <div class="coach-overlay">
         <p class="coach-name">Angela Long</p>
@@ -1186,10 +868,8 @@ footer p{
     </div>
 
     <div class="coach-card reveal reveal-delay-3">
-      <div class="coach-photo">
-        <img src="aqsa.png" alt="Aqsa Wariach"/>
-      </div>
-      <p class="coach-uni">Queens University</p>
+      <div class="coach-photo"><img src="aqsa.png" alt="Aqsa Wariach"/></div>
+      <p class="coach-uni">Queen's University</p>
       <div class="coach-overlay">
         <p class="coach-name">Aqsa Wariach</p>
         <p class="coach-role">Coach</p>
@@ -1205,9 +885,7 @@ footer p{
     </div>
 
     <div class="coach-card reveal reveal-delay-4">
-      <div class="coach-photo">
-        <img src="manha.png" alt="Manha Hussain"/>
-      </div>
+      <div class="coach-photo"><img src="manha.png" alt="Manha Hussain"/></div>
       <p class="coach-uni">Cornell University</p>
       <div class="coach-overlay">
         <p class="coach-name">Manha Hussain</p>
@@ -1222,12 +900,55 @@ footer p{
         </ul>
       </div>
     </div>
+  </div>
+</section>
 
+<!-- CUT INTO PAPER FOR TESTIMONIALS -->
+<div class="cut-down" style="background:var(--ink)">
+  <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><polygon points="0,72 1440,0 1440,72" fill="#F7F5F0"/></svg>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <p class="section-kicker">What people say</p>
+  <h2 class="section-h reveal">Don't just take<br>our word for it</h2>
+  <p class="section-sub reveal reveal-delay-1">Real feedback from real students — we'll keep adding as they come in.</p>
+  <div class="testimonials-grid">
+    <div class="tcard reveal reveal-delay-1">
+      <span class="tcard-quote">"</span>
+      <p class="tcard-text">Feedback placeholder — replace with a real quote once you have them.</p>
+      <div class="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="tcard-divider"></div>
+      <div class="tcard-author">
+        <div class="tcard-avatar"><span>AB</span></div>
+        <div><p class="tcard-name">Name Placeholder</p><p class="tcard-meta">Program · 2026</p></div>
+      </div>
+    </div>
+    <div class="tcard reveal reveal-delay-2">
+      <span class="tcard-quote">"</span>
+      <p class="tcard-text">Feedback placeholder — replace with a real quote once you have them.</p>
+      <div class="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="tcard-divider"></div>
+      <div class="tcard-author">
+        <div class="tcard-avatar"><span>CD</span></div>
+        <div><p class="tcard-name">Name Placeholder</p><p class="tcard-meta">Program · 2026</p></div>
+      </div>
+    </div>
+    <div class="tcard reveal reveal-delay-3">
+      <span class="tcard-quote">"</span>
+      <p class="tcard-text">Feedback placeholder — replace with a real quote once you have them.</p>
+      <div class="tcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="tcard-divider"></div>
+      <div class="tcard-author">
+        <div class="tcard-avatar"><span>EF</span></div>
+        <div><p class="tcard-name">Name Placeholder</p><p class="tcard-meta">Program · 2026</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CUT INTO SAGE -->
-<div class="cut-down" style="background:var(--ink)">
+<div class="cut-down" style="background:var(--paper)">
   <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><polygon points="0,72 1440,0 1440,72" fill="#C5D5BC"/></svg>
 </div>
 
@@ -1235,38 +956,61 @@ footer p{
 <section class="pricing-section" id="pricing">
   <p class="section-kicker">Pricing</p>
   <h2 class="section-h reveal">Honest rates.<br>Real value.</h2>
-  <p class="section-sub reveal reveal-delay-1">no hidden fees, no pressure. just pick the format that works for you.</p>
+  <p class="section-sub reveal reveal-delay-1">All prices are per hour. Courses run across multiple weeks — no hidden fees, no pressure.</p>
 
-  <div class="pricing-inner">
+  <div class="pricing-top">
+
     <div class="price-card reveal reveal-delay-1">
       <div class="price-glow"></div>
-      <p class="price-type">1-on-1 Coaching</p>
-      <div class="price-big">$30</div>
+      <p class="price-course-name">1-on-1 Coaching</p>
+      <p class="price-type">Competition Prep · personalised</p>
+      <div class="price-big">$40</div>
       <p class="price-per">per session</p>
       <ul class="price-items">
         <li>Dedicated time with your coach, every session</li>
         <li>Personalised drills and direct feedback</li>
-        <li>Bundle 10 sessions & coach edits your work between classes at no extra charge</li>
+        <li>Bundle 10 sessions — coach edits your work between classes at no extra charge</li>
       </ul>
     </div>
+
     <div class="price-card dark reveal reveal-delay-2">
       <div class="price-glow"></div>
-      <p class="price-type">Group Sessions</p>
-      <div class="price-big">$15</div>
-      <p class="price-per">per person · per session</p>
+      <p class="price-course-name">Targeted Series</p>
+      <p class="price-type">Debate & Public Speaking Course</p>
+      <div class="price-big">$25</div>
+      <p class="price-per">per hour · drop-in flexibility</p>
       <ul class="price-items">
-        <li>Collaborative, peer-driven environment</li>
-        <li>Live practice rounds with real feedback</li>
-        <li>Capped at 20 students per coach</li>
+        <li>Book the full 8-session month-long course for <strong>$20/hr</strong></li>
+        <li>40 min instruction + 20 min guided practice</li>
+        <li>BP, AP, CP & Impromptu formats</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="pricing-bottom">
+    <div class="price-card reveal reveal-delay-3">
+      <div class="price-glow"></div>
+      <p class="price-course-name">Fundamentals of Communication</p>
+      <p class="price-type">General Speaking Course · group</p>
+      <div class="price-big">$20</div>
+      <p class="price-per">per hour · drop-in flexibility</p>
+      <ul class="price-items">
+        <li>Book the full 8-session month-long course for <strong>$15/hr</strong></li>
+        <li>Activity and practice-first learning to build your confidence</li>
+        <li>20 min concepts + 40 min hands-on drills</li>
+        <li>Small groups capped at 10 — real feedback every session</li>
       </ul>
     </div>
   </div>
 
+  <p class="price-note reveal">Not sure which fits? <a href="https://forms.gle/D2pHrTKcc6zE1zvc7" target="_blank">Book a free call</a> and we'll figure it out together.</p>
+
   <div class="promo-card reveal">
     <div class="promo-tag">Opening deal</div>
     <div class="promo-body">
-      <h4>Bring a friend & both of you save 50%!</h4>
-      <p>Share your personal referral code. When <strong>both of you book</strong>, you each get <strong>50% off your first session!!</strong>. Grab it before it's gone!</p>
+      <h4>Bring a friend — both of you save 50%</h4>
+      <p>Share your personal referral code. When <strong>both of you book</strong>, you each get <strong>50% off your first session</strong>. Grab it before it's gone.</p>
     </div>
     <div class="promo-flag" aria-hidden="true">50%</div>
   </div>
@@ -1277,6 +1021,64 @@ footer p{
   <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><polygon points="0,0 1440,72 0,72" fill="#F7F5F0"/></svg>
 </div>
 
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <p class="section-kicker">FAQ</p>
+  <h2 class="section-h reveal">The stuff people<br>always ask</h2>
+  <p class="section-sub reveal reveal-delay-1">If something's still unclear, just call us — that's what the free consultation is for.</p>
+  <div class="faq-grid reveal reveal-delay-1">
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">Where are sessions held?</span>
+        <div class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <p class="faq-a">Sessions are held <strong>online via Zoom</strong>, so you can join from anywhere. All you need is a stable internet connection and somewhere quiet to sit.</p>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">Is there an in-person option?</span>
+        <div class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <p class="faq-a">Right now we run everything <strong>online only</strong>. It keeps scheduling flexible and means we can work with students no matter where they're based.</p>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">What ages do you coach?</span>
+        <div class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <p class="faq-a">We primarily coach <strong>middle and high school students</strong>, but our consulting programs are open to anyone — professionals included. Not sure if you fit? Just ask us.</p>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">How long is a session?</span>
+        <div class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <p class="faq-a">Standard sessions are <strong>one hour</strong>. Courses run 8 sessions across roughly one month. If you bundle a full course, your coach is also available to review your work between sessions at no extra charge.</p>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">What happens after I click "Book a session"?</span>
+        <div class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <p class="faq-a">You'll fill out a short form and we'll reach out within <strong>24 hours</strong> to confirm your details, match you with the right coach, and lock in a time that works for you.</p>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <span class="faq-q-text">Can I try one session before committing to a course?</span>
+        <div class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <p class="faq-a">Yes — the Targeted Series drop-in rate ($25/hr) lets you try a session before committing to the full course. The <strong>Fundamentals of Communication</strong> course is a full-program commitment only.</p>
+    </div>
+
+  </div>
+</section>
+
 <!-- FREE CONSULTATION CALL -->
 <div class="cut-down" style="background:var(--paper)">
   <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><polygon points="0,72 1440,0 1440,72" fill="#0E0E0E"/></svg>
@@ -1286,29 +1088,26 @@ footer p{
   <div class="call-left">
     <p class="section-kicker">Not sure where to start?</p>
     <h2 class="call-headline reveal">
-      Talk to us.<br>
-      It's <em>completely</em><br>
-      free.
+      Talk to us.<br>It's <em>completely</em><br>free.
     </h2>
     <p class="call-body reveal reveal-delay-1">
-      Not sure which program fits, or just want to get a feel for how we work? <strong>Call us and we'll figure it out together.</strong> No pitch, no pressure, we'd love to talk to you about what you're looking for and whether we're the right fit.
+      Not sure which program fits, or just want to get a feel for how we work? <strong>Call us and we'll figure it out together.</strong> No pitch, no pressure — we'd love to talk to you.
     </p>
     <a href="tel:+1-000-000-0000" class="btn-call reveal reveal-delay-2">
-      <svg class="btn-call-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="btn-call-icon" viewBox="0 0 20 20" fill="none">
         <path d="M3 4.5A1.5 1.5 0 0 1 4.5 3h.878a1.5 1.5 0 0 1 1.404.974l.467 1.243a1.5 1.5 0 0 1-.345 1.627l-.613.614a9.055 9.055 0 0 0 4.251 4.251l.614-.613a1.5 1.5 0 0 1 1.627-.345l1.243.467A1.5 1.5 0 0 1 17 12.622V13.5A1.5 1.5 0 0 1 15.5 15C8.596 15 3 9.404 3 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       Book a free call
     </a>
     <span class="call-free-tag reveal reveal-delay-3">100% free · no commitment · 15 minutes</span>
   </div>
-
   <div class="call-right" aria-hidden="true">
     <div class="call-ring-wrap">
       <div class="call-ring"></div>
       <div class="call-ring"></div>
       <div class="call-ring"></div>
       <div class="call-center">
-        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 36 36" fill="none">
           <path d="M5 8A2 2 0 0 1 7 6h1.5a2 2 0 0 1 1.872 1.299l.8 2.133a2 2 0 0 1-.46 2.17l-1.05 1.05a12.074 12.074 0 0 0 5.686 5.686l1.05-1.05a2 2 0 0 1 2.17-.46l2.133.8A2 2 0 0 1 22 19.5V21a2 2 0 0 1-2 2C10.507 23 5 17.493 5 11V8Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
@@ -1320,7 +1119,6 @@ footer p{
   </div>
 </section>
 
-<!-- CUT CALL INTO CTA -->
 <div class="cut-down" style="background:var(--ink)">
   <svg viewBox="0 0 1440 72" preserveAspectRatio="none"><polygon points="0,72 1440,0 1440,72" fill="#F7F5F0"/></svg>
 </div>
@@ -1330,33 +1128,30 @@ footer p{
   <h2 class="reveal">Your next<br><span>speech</span><br>starts here.</h2>
   <p class="cta-tagline reveal reveal-delay-1">spots are limited — especially heading into competition season.</p>
   <div class="btn-mag-wrap reveal reveal-delay-2">
-    <a href="#" class="btn-big" id="btnBig">Book a session</a>
+    <a href="https://forms.gle/D2pHrTKcc6zE1zvc7" target="_blank" class="btn-big" id="btnBig">Book a session</a>
   </div>
   <p class="cta-note reveal reveal-delay-3">we'll be in touch within 24 hours</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><b>NAME</b></div>
-  <p>© 2026 BAAM Speech & Debating Academy. All rights reserved.</p>
+  <div class="footer-logo"><b>BAAM</b> Speech & Debate Academy</div>
+  <p>© 2026 BAAM Speech & Debate Academy. All rights reserved.</p>
   <div class="footer-links">
     <a href="#programs">Programs</a>
     <a href="#coaches">Coaches</a>
     <a href="#pricing">Pricing</a>
-    <a href="#">Contact</a>
+    <a href="https://forms.gle/D2pHrTKcc6zE1zvc7" target="_blank">Book</a>
   </div>
 </footer>
 
 <script>
-// ── Build tiling word grid ──
-const words     = ['DEBATE','SPEAK','COMPETE','WIN'];
-const wordsFront= ['debate.','speak.','compete.','win.'];
+const words      = ['DEBATE','SPEAK','COMPETE','WIN'];
+const wordsFront = ['debate.','speak.','compete.','win.'];
 let wi = 0;
-const cycleEl  = document.getElementById('cycleWord');
-const bgGrid   = document.getElementById('bgGrid');
-
-const ROWS = 12;
-const COLS = 9;
+const cycleEl = document.getElementById('cycleWord');
+const bgGrid  = document.getElementById('bgGrid');
+const ROWS = 12, COLS = 9;
 
 function buildGrid(word) {
   if(!bgGrid) return;
@@ -1376,93 +1171,62 @@ function buildGrid(word) {
 buildGrid(words[wi]);
 
 function cycleWord() {
-  if(cycleEl){
-    cycleEl.style.opacity = '0';
-    cycleEl.style.transform = 'translateY(14px)';
-  }
+  if(cycleEl){ cycleEl.style.opacity='0'; cycleEl.style.transform='translateY(14px)'; }
   const allSpans = bgGrid ? Array.from(bgGrid.querySelectorAll('span')) : [];
-  allSpans.forEach((s, i) => {
-    setTimeout(() => { s.style.opacity = '0'; }, i * 6);
-  });
-
+  allSpans.forEach((s,i) => setTimeout(() => s.style.opacity='0', i*6));
   setTimeout(() => {
-    wi = (wi + 1) % words.length;
+    wi = (wi+1) % words.length;
     buildGrid(words[wi]);
     const newSpans = bgGrid ? Array.from(bgGrid.querySelectorAll('span')) : [];
-    newSpans.forEach((s, i) => {
-      s.style.opacity = '0';
-      setTimeout(() => { s.style.opacity = '1'; }, 40 + i * 5);
-    });
-    if(cycleEl){
-      cycleEl.textContent = wordsFront[wi];
-      cycleEl.style.opacity = '1';
-      cycleEl.style.transform = 'translateY(0)';
-    }
+    newSpans.forEach((s,i) => { s.style.opacity='0'; setTimeout(() => s.style.opacity='1', 40+i*5); });
+    if(cycleEl){ cycleEl.textContent=wordsFront[wi]; cycleEl.style.opacity='1'; cycleEl.style.transform='translateY(0)'; }
   }, 400);
 }
 setInterval(cycleWord, 2800);
 
-// ── Scroll reveal ──
 const revealEls = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
-  });
-}, {threshold: 0.12});
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold:0.12});
 revealEls.forEach(el => obs.observe(el));
 
-// ── Magnetic button ──
 const magWrap = document.querySelector('.btn-mag-wrap');
 const magBtn  = document.getElementById('btnBig');
-if(magWrap && magBtn) {
+if(magWrap && magBtn){
   magWrap.addEventListener('mousemove', (e) => {
-    const r  = magBtn.getBoundingClientRect();
-    const cx = r.left + r.width / 2;
-    const cy = r.top  + r.height / 2;
-    const dx = (e.clientX - cx) * 0.28;
-    const dy = (e.clientY - cy) * 0.28;
-    magBtn.style.transform = `translate(${dx}px, ${dy}px)`;
+    const r=magBtn.getBoundingClientRect();
+    magBtn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.28}px,${(e.clientY-r.top-r.height/2)*0.28}px)`;
   });
-  magWrap.addEventListener('mouseleave', () => {
-    magBtn.style.transform = 'translate(0,0)';
-    magBtn.style.transition = 'transform .4s cubic-bezier(.34,1.56,.64,1), background .2s, box-shadow .2s';
-  });
-  magWrap.addEventListener('mouseenter', () => {
-    magBtn.style.transition = 'transform .1s linear, background .2s, box-shadow .2s';
-  });
+  magWrap.addEventListener('mouseleave',()=>{ magBtn.style.transform='translate(0,0)'; magBtn.style.transition='transform .4s cubic-bezier(.34,1.56,.64,1),background .2s,box-shadow .2s'; });
+  magWrap.addEventListener('mouseenter',()=>{ magBtn.style.transition='transform .1s linear,background .2s,box-shadow .2s'; });
 }
 
-// ── Nav border on scroll ──
-window.addEventListener('scroll', () => {
-  document.getElementById('mainNav').style.borderBottomColor =
-    window.scrollY > 10 ? 'rgba(14,14,14,0.13)' : 'rgba(14,14,14,0.07)';
-}, {passive:true});
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').style.borderBottomColor=window.scrollY>10?'rgba(14,14,14,0.13)':'rgba(14,14,14,0.07)';
+},{passive:true});
 
-// ── Hero parallax on mouse move ──
-const hero    = document.querySelector('.hero');
-const orb1    = document.querySelector('.hero-orb-1');
-const orb2    = document.querySelector('.hero-orb-2');
-const orb3    = document.querySelector('.hero-orb-3');
+const hero=document.querySelector('.hero');
+const orb1=document.querySelector('.hero-orb-1');
+const orb2=document.querySelector('.hero-orb-2');
+const orb3=document.querySelector('.hero-orb-3');
 if(hero){
-  hero.addEventListener('mousemove', (e) => {
-    const rx = (e.clientX / window.innerWidth  - 0.5);
-    const ry = (e.clientY / window.innerHeight - 0.5);
-    if(orb1) orb1.style.transform = `translate(${rx*28}px,${ry*20}px)`;
-    if(orb2) orb2.style.transform = `translate(${rx*-20}px,${ry*-16}px)`;
-    if(orb3) orb3.style.transform = `translate(-50%,${ry*10}px)`;
+  hero.addEventListener('mousemove',(e)=>{
+    const rx=e.clientX/window.innerWidth-0.5, ry=e.clientY/window.innerHeight-0.5;
+    if(orb1) orb1.style.transform=`translate(${rx*28}px,${ry*20}px)`;
+    if(orb2) orb2.style.transform=`translate(${rx*-20}px,${ry*-16}px)`;
+    if(orb3) orb3.style.transform=`translate(-50%,${ry*10}px)`;
   });
-  hero.addEventListener('mouseleave', () => {
-    if(orb1) orb1.style.transform = '';
-    if(orb2) orb2.style.transform = '';
-    if(orb3) orb3.style.transform = 'translate(-50%,0)';
+  hero.addEventListener('mouseleave',()=>{
+    if(orb1) orb1.style.transform='';
+    if(orb2) orb2.style.transform='';
+    if(orb3) orb3.style.transform='translate(-50%,0)';
   });
 }
 
-// ── FAQ accordion ──
-function toggleFaq(item) {
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+function toggleFaq(item){
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
 }
 </script>
 </body>
